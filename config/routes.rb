@@ -5,6 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
 
+	map.resources :users, :member => { :choose_handle => [:get, :post], :company_profile => :get } do |users|
+		users.resources :reviews
+	end
+
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
@@ -23,15 +27,20 @@ ActionController::Routing::Routes.draw do |map|
   #     products.resources :comments
   #     products.resources :sales, :collection => { :recent => :get }
   #   end
-
+	
   # Sample resource route within a namespace:
   #   map.namespace :admin do |admin|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
-
+  
+  map.login '/login', :controller => 'sessions', :action => 'login'
+  map.logout '/logout', :controller => 'sessions', :action => 'logout'
+  map.signup '/signup', :controller => 'users', :action => 'new'
+  
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
+  map.root :controller => 'pages', :action => 'index'
 
   # See how all your routes lay out with "rake routes"
 
@@ -40,4 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  map.connect '/:handle', :controller => 'users', :action => 'show'
+  map.connect '/go/:code', :controller => 'codes', :action => 'check'
 end

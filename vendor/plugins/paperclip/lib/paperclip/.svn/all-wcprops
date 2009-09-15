@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/plugins/!svn/ver/524/paperclip/trunk/lib/paperclip
+END
+iostream.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/plugins/!svn/ver/470/paperclip/trunk/lib/paperclip/iostream.rb
+END
+thumbnail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/plugins/!svn/ver/421/paperclip/trunk/lib/paperclip/thumbnail.rb
+END
+storage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/plugins/!svn/ver/523/paperclip/trunk/lib/paperclip/storage.rb
+END
+upfile.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/plugins/!svn/ver/516/paperclip/trunk/lib/paperclip/upfile.rb
+END
+attachment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/plugins/!svn/ver/524/paperclip/trunk/lib/paperclip/attachment.rb
+END
+geometry.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/plugins/!svn/ver/517/paperclip/trunk/lib/paperclip/geometry.rb
+END

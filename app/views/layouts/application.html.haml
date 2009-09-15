@@ -1,0 +1,16 @@
+!!! XML
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+	%head
+		%title= site_name
+		= stylesheet_link_tag 'tripoli'
+	%body
+	
+		-	if logged_in?
+			= link_to "Ask for a review", :controller => 'reviews', :action => 'new'
+			| Get a badge | Profile | Settings
+	
+		-	flash.each do |key, message|
+			=	content_tag :div, message, :class => key
+		
+		=	yield

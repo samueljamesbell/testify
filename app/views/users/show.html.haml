@@ -1,0 +1,8 @@
+%h2 Company Profile
+
+%h3= @user.name
+
+= image_tag(@user.logo.url)
+
+#reviews
+	= render :partial => @user.reviews

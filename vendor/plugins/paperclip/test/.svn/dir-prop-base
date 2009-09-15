@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 37
+debug.log
+paperclip.db
+public
+s3.yml
+
+END

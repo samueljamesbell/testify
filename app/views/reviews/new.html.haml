@@ -1,0 +1,18 @@
+-	form_for([current_user, @review]) do |f|
+	= f.error_messages
+	%p
+		= f.label :name 
+		= f.text_field :name
+	%p
+		= f.label :email
+		= f.text_field :email
+	%p
+		= f.label :company 
+		= f.text_field :company
+	%p
+		= f.label :work, 'Job description'
+		= f.text_field :work
+	%p
+		= f.submit "Continue", :id => 'save_button'
+
+		= link_to 'Cancel', { :controller => 'users', :action => 'company_profile', :handle => current_user.handle }, :id => 'cancel_link'
