@@ -7,16 +7,16 @@
 	= f.label :organisation, 'Organisation (optional)'
 	= f.text_field :organisation
 
-  = f.label :email
-  = f.text_field :email
+	= f.label :email
+	= f.text_field :email
 
-  = f.label :user_password, 'Password'
-  = f.text_field :password
- 
-  = f.label :user_password_confirmation, 'Confirm Password' 
-  = f.text_field :password_confirmation
-     
-  = f.submit "Update", :id => 'save_button'
+	= f.label :user_password, 'Password'
+	= f.text_field :password
+
+	= f.label :user_password_confirmation, 'Confirm Password' 
+	= f.text_field :password_confirmation
+    
+	= f.submit "Update", :id => 'save_button'
   
 = link_to 'Cancel', { :controller => 'pages', :action => 'index' }, :id => 'cancel_link'
 
