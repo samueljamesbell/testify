@@ -5,7 +5,7 @@ class RemoveInformationFromUsers < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :users, :organisation
-  	remove_column :users, :company
+    add_column :users, :organisation
+  	add_column :users, :company
   end
 end
