@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   	handle
   end
 
-	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '250x250>'}
+#	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '250x250>'}
 	
 	validates_presence_of     :email
 	validates_presence_of     :name
