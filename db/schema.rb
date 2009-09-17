@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090915205101) do
+ActiveRecord::Schema.define(:version => 20090917215830) do
 
   create_table "actions", :force => true do |t|
     t.string   "object_type"
@@ -24,27 +24,6 @@ ActiveRecord::Schema.define(:version => 20090915205101) do
     t.string   "code"
     t.boolean  "used"
     t.integer  "review_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "pages", :force => true do |t|
-    t.string   "email"
-    t.string   "hashed_password"
-    t.string   "salt"
-    t.string   "name"
-    t.string   "url"
-    t.string   "website"
-    t.string   "location"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "requests", :force => true do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "company"
-    t.string   "work"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20090915205101) do
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
+    t.string   "url"
   end
 
 end

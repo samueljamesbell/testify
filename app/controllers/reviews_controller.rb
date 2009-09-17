@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 		@review = current_user.reviews.new(params[:review])
 		if @review.save
 			code = Code.create!(:review_id => @review.id)
-			# notify user by review.email
+      Notifier.deliver_request(@review.name, @review.work, @review.email, code.code)
 			redirect_to :controller => 'users', :action => 'show', :handle => current_user.handle
 		else
 			render :action => 'new'
