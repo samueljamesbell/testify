@@ -50,6 +50,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
-  map.connect '/:handle', :controller => 'users', :action => 'show'
+  map.connect '/:id', :controller => 'users', :action => 'show'
   map.connect '/go/:code', :controller => 'codes', :action => 'check'
 end

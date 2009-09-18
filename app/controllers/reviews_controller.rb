@@ -8,8 +8,8 @@ class ReviewsController < ApplicationController
 		@review = current_user.reviews.new(params[:review])
 		if @review.save
 			code = Code.create!(:review_id => @review.id)
-      Notifier.deliver_request(@review.name, @review.work, @review.email, code.code)
-			redirect_to :controller => 'users', :action => 'show', :handle => current_user.handle
+      Notifier.deliver_request_review(@review.name, @review.work, @review.email, code.code)
+			redirect_to user_path(@review.user)
 		else
 			render :action => 'new'
 		end

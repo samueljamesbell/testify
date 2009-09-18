@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         uri = session[:original_uri]
         session[:original_uri] = nil
         flash.now[:notice] = "Successfully logged in."                                                           
-        redirect_to :controller => 'users', :action => 'show', :handle => @user.handle
+        redirect_to user_path(user)
       else
         flash.now[:error] = "Invalid user/password combination. Try again."
       end

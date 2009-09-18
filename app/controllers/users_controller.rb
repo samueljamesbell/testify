@@ -20,7 +20,6 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       session[:user_id] = @user.id
     else
-      flash[:error] = 'There was a problem creating your account.'
       redirect_to :action => 'new'
     end
   end
