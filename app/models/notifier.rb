@@ -1,6 +1,6 @@
 class Notifier < ActionMailer::Base
   
-  def request_review(name, work, email, code)
+  def demand(name, work, email, code)
     @recipients  = email
     @from        = "sam@designhou.se"
     @subject     = "How was it for you? Testify!"

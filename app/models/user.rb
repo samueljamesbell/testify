@@ -1,6 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
 	has_many :reviews
+	has_many :demands
 
   acts_as_url :handle
   

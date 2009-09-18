@@ -1,14 +1,18 @@
 class ReviewsController < ApplicationController
 
 	def new
-		@review = current_user.reviews.new
+		@demand = Demand.find(params[:demand_id])
+		@review = Review.new
+		@review.demand_id = @demand.id
 	end
 	
 	def create
-		@review = current_user.reviews.new(params[:review])
+		@review = Review.new(params[:review])
+		demand = Demand.find(@review.demand_id)
+		@review.update_attributes(:name => demand.name, :company => demand.company, :email => demand.email, :user_id => demand.user_id, :work => demand.work)
 		if @review.save
-			code = Code.create!(:review_id => @review.id)
-      Notifier.deliver_request_review(@review.name, @review.work, @review.email, code.code)
+			demand.toggle! :completed
+			demand.toggle! :code_used
 			redirect_to user_path(@review.user)
 		else
 			render :action => 'new'

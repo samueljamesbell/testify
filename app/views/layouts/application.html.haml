@@ -8,11 +8,13 @@
 	%body
 	
 		-	if logged_in?
-			= link_to "Ask for a review", :controller => 'reviews', :action => 'new'
+			= link_to "Ask for a review", :controller => 'demands', :action => 'new'
 			| Get a badge
 			| 
 			= link_to "Profile", user_path(current_user)
 			| Settings
+			|
+			= current_user.id
 	
 		%h1 Testify!
 	

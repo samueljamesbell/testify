@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
 	map.resources :users, :member => { :choose_handle => [:get, :post], :company_profile => :get } do |users|
 		users.resources :reviews
+		users.resources :demands
 	end
 
   # Sample of named route:
@@ -51,5 +52,5 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id.:format'
   
   map.connect '/:id', :controller => 'users', :action => 'show'
-  map.connect '/go/:code', :controller => 'codes', :action => 'check'
+  map.connect '/go/:code', :controller => 'demands', :action => 'show'
 end

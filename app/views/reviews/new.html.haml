@@ -1,18 +1,20 @@
+%p
+	=	@demand.name
+%p
+	=	@demand.company
+%p
+	=	@demand.work
+%p
+	=	@demand.email
+
 -	form_for([current_user, @review]) do |f|
 	= f.error_messages
 	%p
-		= f.label :name 
-		= f.text_field :name
-	%p
-		= f.label :email
-		= f.text_field :email
-	%p
-		= f.label :company 
-		= f.text_field :company
-	%p
-		= f.label :work, 'Job description'
-		= f.text_field :work
+		= f.label :body, 'Review'
+		= f.text_area :body
+		
+		=	f.hidden_field :demand_id
 	%p
 		= f.submit "Continue", :id => 'save_button'
 
-		= link_to 'Cancel', { :controller => 'users', :action => 'company_profile', :handle => current_user.handle }, :id => 'cancel_link'
+		= link_to 'Cancel', user_path(@demand.user), :id => 'cancel_link'
