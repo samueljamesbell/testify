@@ -3,12 +3,18 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
 	%head
 		%title= site_name
-		= stylesheet_link_tag 'tripoli'
+		= stylesheet_link_tag 'typography'
+		= stylesheet_link_tag 'forms'
 	%body
 	
 		-	if logged_in?
 			= link_to "Ask for a review", :controller => 'reviews', :action => 'new'
-			| Get a badge | Profile | Settings
+			| Get a badge
+			| 
+			= link_to "Profile", user_path(current_user)
+			| Settings
+	
+		%h1 Testify!
 	
 		-	flash.each do |key, message|
 			=	content_tag :div, message, :class => key
