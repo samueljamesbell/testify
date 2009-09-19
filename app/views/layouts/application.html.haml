@@ -17,6 +17,12 @@
 			= current_user.id
 			|
 			= link_to "Pending reviews", user_demands_path(current_user)
+			|
+			= link_to "Log out", logout_path
+		- else
+			= link_to "Log in", login_path
+			|
+			= link_to "Sign up", signup_path
 	
 		%h1 Testify!
 	
