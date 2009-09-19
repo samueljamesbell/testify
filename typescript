@@ -150,4 +150,174 @@ Completed in 57ms (View: 33, DB: 2) | 200 OK [http://localhost/signup]
 
 
 Processing SessionsController#login (for 127.0.0.1 at 2009-09-19 14:55:23) [GET]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering sessions/login
+  [4;35;1mUser Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` IS NULL) LIMIT 1[0m
+Completed in 47ms (View: 41, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#login (for 127.0.0.1 at 2009-09-19 14:55:32) [POST]
+  Parameters: {"commit"=>"Login", "authenticity_token"=>"e90ebc0cb0edd72e35fd61614552e50fe9c8f4b6", "password"=>"MtF1212", "email"=>"samueljamesbell@googlemail.com"}
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`email` = 'samueljamesbell@googlemail.com') LIMIT 1[0m
+Redirected to /users/samueljamesbell
+Completed in 31ms (DB: 2) | 302 Found [http://localhost/login]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-09-19 14:55:32) [GET]
+  Parameters: {"id"=>"samueljamesbell"}
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`handle` = 'samueljamesbell') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+[paperclip] Paperclip attachment logo on User initialized.
+  [4;35;1mReview Load (0.7ms)[0m   [0mSELECT * FROM `reviews` WHERE (`reviews`.user_id = 3) [0m
+  [4;36;1mReview Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `reviews`[0m
+Rendered reviews/_review (0.7ms)
+Rendered reviews/_review (0.5ms)
+Rendered reviews/_review (0.5ms)
+Rendered reviews/_review (0.5ms)
+Rendered reviews/_review (0.5ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+Completed in 74ms (View: 48, DB: 2) | 200 OK [http://localhost/users/samueljamesbell]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-19 14:55:32) [GET]
+Rendering template within layouts/application
+Rendering public/404.html (404)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mUser Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 3) LIMIT 1[0m
+^C** INT signal received.
+Exiting
+]0;sam@samsfedora:~/apps/testify[sam@samsfedora testify]$ script/generate migration  [K  [K[K [K [K [K [K [K [K [K [KAddFIxe[K[K[KixedCriteria [KToReviw[Kews value_for_M[Kmoney[K[K[K[K[K[K[K[K[K[K:integer time[K[K[K[K[K[K[K[K[K[K[K[K[K_for_money:integer mett[K[K[K[Ktime_a[Kn[Kmna[K[Kanagement:integer cusom[K[Ktomer_serv9[Kice:integer qualit y_or[Kf_server[K[Kiv[Kce:integer
+      exists  db/migrate
+      create  db/migrate/20090919140100_add_fixed_criteria_to_reviews.rb
+]0;sam@samsfedora:~/apps/testify[sam@samsfedora testify]$ rake db:migrate
+(in /home/sam/apps/testify)
+==  AddFixedCriteriaToReviews: migrating ======================================
+-- add_column(:reviews, :value_for_money, :integer)
+   -> 0.4222s
+-- add_column(:reviews, :time_management, :integer)
+   -> 0.0147s
+-- add_column(:reviews, :customer_service, :integer)
+   -> 0.0252s
+-- add_column(:reviews, :quality_of_service, :integer)
+   -> 0.0186s
+==  AddFixedCriteriaToReviews: migrated (0.4820s) =============================
+
+]0;sam@samsfedora:~/apps/testify[sam@samsfedora testify]$ git add .[K[K[K[K[K[K[K[K[Kgit add .
+]0;sam@samsfedora:~/apps/testify[sam@samsfedora testify]$ git commit -a -m "Updated nav and created fixed_cret[K[K[K[K[K cir[K[Kriteria migrations[K"
+[master bc93fec] Updated nav and created fixed criteria migration
+ 4 files changed, 179 insertions(+), 9 deletions(-)
+ create mode 100644 db/migrate/20090919140100_add_fixed_criteria_to_reviews.rb
+ create mode 100644 typescript
+]0;sam@samsfedora:~/apps/testify[sam@samsfedora testify]$ git push && cap deploy migrations
+Counting objects: 19, done.
+Delta compression using 2 threads.
+Compressing objects:  10% (1/10)   Compressing objects:  20% (2/10)   Compressing objects:  30% (3/10)   Compressing objects:  40% (4/10)   Compressing objects:  50% (5/10)   Compressing objects:  60% (6/10)   Compressing objects:  70% (7/10)   Compressing objects:  80% (8/10)   Compressing objects:  90% (9/10)   Compressing objects: 100% (10/10)   Compressing objects: 100% (10/10), done.
+Writing objects:   9% (1/11)   Writing objects:  18% (2/11)   Writing objects:  27% (3/11)   Writing objects:  36% (4/11)   Writing objects:  45% (5/11)   Writing objects:  54% (6/11)   Writing objects:  63% (7/11)   Writing objects:  72% (8/11)   Writing objects:  81% (9/11)   Writing objects:  90% (10/11)   Writing objects: 100% (11/11)   Writing objects: 100% (11/11), 2.65 KiB, done.
+Total 11 (delta 6), reused 0 (delta 0)
+To ssh://sam@courier/~/git/testify.git
+   6a1b210..bc93fec  master -> master
+  * executing `deploy'
+  * executing `deploy:update'
+ ** transaction: start
+  * executing `deploy:update_code'
+    updating the cached checkout on all servers
+    executing locally: "git ls-remote sam@174.143.208.94:git/testify.git master"
+  * executing "if [ -d /home/sam/testify/shared/cached-copy ]; then cd /home/sam/testify/shared/cached-copy && git fetch  origin && git reset  --hard bc93fec3b3d48f898739f4fe65762754beb44b12 && git clean  -d -x -f; else git clone  sam@174.143.208.94:git/testify.git /home/sam/testify/shared/cached-copy && cd /home/sam/testify/shared/cached-copy && git checkout  -b deploy bc93fec3b3d48f898739f4fe65762754beb44b12; fi"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+ ** [174.143.208.94 :: err] From sam@174.143.208.94:git/testify
+ ** [174.143.208.94 :: err]    6a1b210..bc93fec  master     -> origin/master
+ ** [174.143.208.94 :: out] HEAD is now at bc93fec Updated nav and created fixed criteria migration
+    command finished
+    copying the cached version to /home/sam/testify/releases/20090919140156
+  * executing "cp -RPp /home/sam/testify/shared/cached-copy /home/sam/testify/releases/20090919140156 && (echo bc93fec3b3d48f898739f4fe65762754beb44b12 > /home/sam/testify/releases/20090919140156/REVISION)"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing `deploy:finalize_update'
+  * executing "chmod -R g+w /home/sam/testify/releases/20090919140156"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing "rm -rf /home/sam/testify/releases/20090919140156/log /home/sam/testify/releases/20090919140156/public/system /home/sam/testify/releases/20090919140156/tmp/pids &&\\\n      mkdir -p /home/sam/testify/releases/20090919140156/public &&\\\n      mkdir -p /home/sam/testify/releases/20090919140156/tmp &&\\\n      ln -s /home/sam/testify/shared/log /home/sam/testify/releases/20090919140156/log &&\\\n      ln -s /home/sam/testify/shared/system /home/sam/testify/releases/20090919140156/public/system &&\\\n      ln -s /home/sam/testify/shared/pids /home/sam/testify/releases/20090919140156/tmp/pids"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing "find /home/sam/testify/releases/20090919140156/public/images /home/sam/testify/releases/20090919140156/public/stylesheets /home/sam/testify/releases/20090919140156/public/javascripts -exec touch -t 200909191402.03 {} ';'; true"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+    triggering after callbacks for `deploy:update_code'
+  * executing `configure_database'
+  * executing "cp /home/sam/testify/config/database.yml /home/sam/testify/releases/20090919140156/config/database.yml"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing `deploy:symlink'
+  * executing "rm -f /home/sam/testify/current && ln -s /home/sam/testify/releases/20090919140156 /home/sam/testify/current"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+ ** transaction: commit
+  * executing `deploy:restart'
+  * executing "touch /home/sam/testify/current/tmp/restart.txt"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+the task `migrations' does not exist
+]0;sam@samsfedora:~/apps/testify[sam@samsfedora testify]$ git push && cap deploy migrations[1Pmigrations:migrations
+Everything up-to-date
+  * executing `deploy:migrations'
+  * executing `deploy:update_code'
+    updating the cached checkout on all servers
+    executing locally: "git ls-remote sam@174.143.208.94:git/testify.git master"
+  * executing "if [ -d /home/sam/testify/shared/cached-copy ]; then cd /home/sam/testify/shared/cached-copy && git fetch  origin && git reset  --hard bc93fec3b3d48f898739f4fe65762754beb44b12 && git clean  -d -x -f; else git clone  sam@174.143.208.94:git/testify.git /home/sam/testify/shared/cached-copy && cd /home/sam/testify/shared/cached-copy && git checkout  -b deploy bc93fec3b3d48f898739f4fe65762754beb44b12; fi"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+ ** [174.143.208.94 :: out] HEAD is now at bc93fec Updated nav and created fixed criteria migration
+    command finished
+    copying the cached version to /home/sam/testify/releases/20090919140222
+  * executing "cp -RPp /home/sam/testify/shared/cached-copy /home/sam/testify/releases/20090919140222 && (echo bc93fec3b3d48f898739f4fe65762754beb44b12 > /home/sam/testify/releases/20090919140222/REVISION)"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing `deploy:finalize_update'
+  * executing "chmod -R g+w /home/sam/testify/releases/20090919140222"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing "rm -rf /home/sam/testify/releases/20090919140222/log /home/sam/testify/releases/20090919140222/public/system /home/sam/testify/releases/20090919140222/tmp/pids &&\\\n      mkdir -p /home/sam/testify/releases/20090919140222/public &&\\\n      mkdir -p /home/sam/testify/releases/20090919140222/tmp &&\\\n      ln -s /home/sam/testify/shared/log /home/sam/testify/releases/20090919140222/log &&\\\n      ln -s /home/sam/testify/shared/system /home/sam/testify/releases/20090919140222/public/system &&\\\n      ln -s /home/sam/testify/shared/pids /home/sam/testify/releases/20090919140222/tmp/pids"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing "find /home/sam/testify/releases/20090919140222/public/images /home/sam/testify/releases/20090919140222/public/stylesheets /home/sam/testify/releases/20090919140222/public/javascripts -exec touch -t 200909191402.23 {} ';'; true"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+    triggering after callbacks for `deploy:update_code'
+  * executing `configure_database'
+  * executing "cp /home/sam/testify/config/database.yml /home/sam/testify/releases/20090919140222/config/database.yml"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing `deploy:migrate'
+  * executing "ls -xt /home/sam/testify/releases"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+    command finished
+  * executing "cd /home/sam/testify/releases/20090919140222; rake RAILS_ENV=production  db:migrate"
+    servers: ["174.143.208.94"]
+    [174.143.208.94] executing command
+ ** [out :: 174.143.208.94] (in /home/sam/testify/releases/20090919140222)
+ ** [out :: 174.143.208.94] ==  AddFixedCriteriaToReviews: migrating ======================================
+ ** [out :: 174.143.208.94] -- add_column(:reviews, :value_for_money, :integer)
+ ** [out :: 174.143.208.94] -> 0.7600s
+ ** [out :: 174.143.208.94] -- add_column(:re

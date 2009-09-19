@@ -15,6 +15,17 @@
 		
 		=	f.hidden_field :demand_id
 	%p
+		= f.label :value_for_money
+		= f.select :value_for_money, @choices
+	%p
+		= f.label :time_management
+		= f.select :time_management, @choices
+	%p
+		= f.label :customer_service
+		= f.select :customer_service, @choices
+	%p
+		= f.label :quality_of_service, 'Overall quality'
+		= f.select :quality_of_service, @choices
+	%p
 		= f.submit "Continue", :id => 'save_button'
-
 		= link_to 'Cancel', user_path(@demand.user), :id => 'cancel_link'

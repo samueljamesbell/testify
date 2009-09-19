@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
 	def new
+		@choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		@demand = Demand.find(params[:demand_id])
 		@review = Review.new
 		@review.demand_id = @demand.id

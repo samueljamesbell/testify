@@ -1,10 +1,26 @@
 %li
-	= review.name
+	- unless review.name_hidden?
+		Name:
+		= review.name
+	- unless review.company_hidden?
+		%br
+		Company:
+		= review.company
 	%br
-	= review.email
-	%br
-	= review.company
-	%br
+	Project:
 	= review.work
 	%br
+	Review:
 	= review.body
+	%br
+	Value for money:
+	= review.value_for_money
+	%br
+	Time management:
+	= review.time_management
+	%br
+	Customer service:
+	= review.customer_service
+	%br
+	Overall quality:
+	= review.quality_of_service
