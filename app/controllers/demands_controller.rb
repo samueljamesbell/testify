@@ -6,7 +6,7 @@ class DemandsController < ApplicationController
 	
 	def show
 		demand = Demand.find_by_code(params[:code])
-		if demand
+		if demand && !demand.code_used?
 			redirect_to(new_user_review_path(demand.user, :demand_id => demand.id))
 		else
 			redirect_to :controller => 'pages', :action => 'index'
