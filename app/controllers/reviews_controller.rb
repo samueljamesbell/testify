@@ -5,6 +5,9 @@ class ReviewsController < ApplicationController
 		@demand = Demand.find(params[:demand_id])
 		@review = Review.new
 		@review.demand_id = @demand.id
+		if !@demand || @demand.completed?
+			redirect_to home_path
+		end
 	end
 	
 	def create
