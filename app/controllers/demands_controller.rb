@@ -2,6 +2,8 @@ class DemandsController < ApplicationController
 	before_filter :authorise
 
 	def index
+	  @user = User.find_by_handle(params[:id])
+		@demands = current_user.demands.find(:all, :conditions => { :completed => false })
 	end
 	
 	def show

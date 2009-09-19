@@ -1,0 +1,8 @@
+%h2 Pending Reviews
+
+%h3= @user.name
+
+= image_tag(@user.logo.url)
+
+%ul#demands
+	= render :partial => current_user.demands
