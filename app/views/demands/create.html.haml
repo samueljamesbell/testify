@@ -1,0 +1,15 @@
+%p
+	You've just requested a review from 
+	= @demand.name
+	of 
+	= @demand.company
+
+%p
+	The unique URL for this review (that you can send to your client) is:
+	= link_to "http://testify.thecouriernew.com/go/#{@demand.code}", "http://testify.thecouriernew.com/go/#{@demand.code}"
+	
+%p
+	= link_to "Return to profile", user_path(@demand.user)
+	|
+	= link_to "Request another review", :controller => 'demands', :action => 'new'
+	

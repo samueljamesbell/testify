@@ -23,4 +23,36 @@ class ReviewsController < ApplicationController
 		end
 	end
 	
+	def hide_name
+		@review = Review.find_by_id(params[:id])
+		@review.update_attribute :name_hidden, true
+		respond_to do |format|
+			format.js
+		end
+	end
+	
+	def unhide_name
+		@review = Review.find_by_id(params[:id])
+		@review.update_attribute :name_hidden, false
+		respond_to do |format|
+			format.js
+		end
+	end
+	
+	def hide_company
+		@review = Review.find_by_id(params[:id])
+		@review.update_attribute :company_hidden, true
+		respond_to do |format|
+			format.js
+		end
+	end
+	
+	def unhide_company
+		@review = Review.find_by_id(params[:id])
+		@review.update_attribute :company_hidden, false
+		respond_to do |format|
+			format.js
+		end
+	end
+	
 end

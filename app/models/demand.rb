@@ -5,7 +5,7 @@ class Demand < ActiveRecord::Base
 	
 	require 'digest/sha1'
 	
-	validates_presence_of :name, :company, :emaill, :work
+	validates_presence_of :name, :company, :email, :work
 	
 	def process
 	  self.code = Digest::SHA1.hexdigest([Time.now, rand].join)[0,5]

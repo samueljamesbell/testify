@@ -1,0 +1,2 @@
+page.replace_html("company_#{@review.id}", :partial => 'reviews/company.html.haml', :locals => { :review => @review } )
+page.visual_effect :highlight, "company_#{@review.id}"

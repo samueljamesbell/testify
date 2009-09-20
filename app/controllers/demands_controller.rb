@@ -23,7 +23,6 @@ class DemandsController < ApplicationController
 		@demand = current_user.demands.build(params[:demand])
 		if @demand.save
       Notifier.deliver_demand(@demand.name, @demand.work, @demand.email, @demand.code)
-			redirect_to user_path(current_user)
 		else
 			render :action => 'new'
 		end

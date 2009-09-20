@@ -1,0 +1,4 @@
+%span#greyed
+	Name:
+	= review.name
+= link_to_remote "unhide", :url => { :controller => 'reviews', :action => 'unhide_name', :id => review.id }
