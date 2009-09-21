@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
 	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '250x250>'}
 	
+	validates_attachment_presence :logo
+	
 	validates_presence_of     :email
 	validates_presence_of     :name
 	

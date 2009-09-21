@@ -61,3 +61,7 @@ h4#pending_reviews {
 	float: right;
 	border: 2px #eee solid;
 }
+
+.compulsory {
+	color: #8a1f11;
+}
