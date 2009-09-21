@@ -1,22 +1,26 @@
 - form_for(@user) do |f|
 	= f.error_messages
-
-	= f.label :name
-	= f.text_field :name
-
-	= f.label :organisation, 'Organisation (optional)'
-	= f.text_field :organisation
-
-	= f.label :email
-	= f.text_field :email
-
-	= f.label :user_password, 'Password'
-	= f.text_field :password
-
-	= f.label :user_password_confirmation, 'Confirm Password' 
-	= f.text_field :password_confirmation
-    
-	= f.submit "Update", :id => 'save_button'
-  
-= link_to 'Cancel', user_path(@user), :id => 'cancel_link'
+	%p
+		= f.label :name
+		%br
+		= f.text_field :name
+	%p
+		= f.label :handle, 'Choose your unique URL'
+		%br
+		= f.text_field :handle
+	%p
+		= f.label :email
+		%br
+		= f.text_field :email
+	%p
+		= f.label :password, 'Password'
+		%br
+		= f.password_field :password
+	%p
+		= f.label :password_confirmation, 'Confirm Password'
+		%br
+		= f.password_field :password_confirmation
+	%p
+		= f.submit "Update", :id => 'save_button'
+		= link_to 'Cancel', user_path(@user), :id => 'cancel_link'
 

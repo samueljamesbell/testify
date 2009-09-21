@@ -2,15 +2,19 @@
 	= f.error_messages
 	%p
 		= f.label :name 
+		%br
 		= f.text_field :name
 	%p
 		= f.label :email
+		%br
 		= f.text_field :email
 	%p
-		= f.label :company 
+		= f.label :company
+		%br
 		= f.text_field :company
 	%p
 		= f.label :work, 'Job description'
+		%br
 		= f.text_field :work
 	%p
 		= f.label :send_email, 'Send an email notification'

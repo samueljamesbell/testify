@@ -4,14 +4,15 @@
 
 	%p
 		%label{:for => 'email'} Email
+		%br
 		= text_field_tag :email, params[:email]
 		
 	%p
 		%label{:for => 'password'} Password
+		%br
 		= password_field_tag :password, params[:password]
 
 	%p
 		= submit_tag "Login", :id => 'save_button'
-
-= link_to "Sign up", { :controller => 'users', :action => 'new' }, :class => 'sign_up_link'
+		= link_to "Sign up", { :controller => 'users', :action => 'new' }, :class => 'sign_up_link'
 

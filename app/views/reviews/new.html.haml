@@ -11,20 +11,25 @@
 	= f.error_messages
 	%p
 		= f.label :body, 'Review'
+		%br
 		= f.text_area :body
 		
 		=	f.hidden_field :demand_id
 	%p
 		= f.label :value_for_money
+		%br
 		= f.select :value_for_money, @choices
 	%p
 		= f.label :time_management
+		%br
 		= f.select :time_management, @choices
 	%p
 		= f.label :customer_service
+		%br
 		= f.select :customer_service, @choices
 	%p
 		= f.label :quality_of_service, 'Overall quality'
+		%br
 		= f.select :quality_of_service, @choices
 	%p
 		= f.submit "Continue", :id => 'save_button'
