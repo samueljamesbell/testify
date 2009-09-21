@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def edit
 	  @user = User.find_by_handle(params[:id])
+	  unless @user
+  	  flash[:error] = "An error has occurred. User could not be not found."
+	  	redirect_to welcome_path
+	  end
 	  redirect_to welcome_path unless @user == current_user
 	rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to edit user with invalid id. #{params[:id]}" )
