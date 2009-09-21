@@ -11,12 +11,14 @@ class ReviewsController < ApplicationController
 	end
 	
 	def create
+		@choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		@review = Review.new(params[:review])
-		demand = Demand.find(@review.demand_id)
-		@review.update_attributes(:name => demand.name, :company => demand.company, :email => demand.email, :user_id => demand.user_id, :work => demand.work)
+		@demand = Demand.find(@review.demand_id)
+		@review.update_attributes(:name => @demand.name, :company => @demand.company, :email => @demand.email, :user_id => @demand.user_id, :work => @demand.work)
 		if @review.save
-			demand.toggle! :completed
-			demand.toggle! :code_used
+			@demand.toggle! :completed
+			@demand.toggle! :code_used
+			Notifier.deliver_review_completed(@review.name, @review.work, @review.email, @review.user.handle)
 			redirect_to user_path(@review.user)
 		else
 			render :action => 'new'

@@ -25,5 +25,17 @@ class Notifier < ActionMailer::Base
     body[:work] = work
     body[:link] = "http://testify.thecouriernew.com/go/#{code}"
   end
+  
+  def review_completed(name, work, email, handle)
+    @recipients  = email
+    @from        = "sam@designhou.se"
+    @subject     = "You've been reviewed on Testify!"
+    @sent_on     = Time.now
+    @content_type = 'text/html'
+    body[:name] = name
+    body[:handle] = handle
+    body[:work] = work
+    body[:link] = "http://testify.thecouriernew.com/#{handle}"
+  end
 
 end

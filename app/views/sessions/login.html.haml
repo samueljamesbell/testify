@@ -2,13 +2,16 @@
 
 - form_tag do
 
-	%label{:for => 'email'} Email
-	= text_field_tag :email, params[:email]
+	%p
+		%label{:for => 'email'} Email
+		= text_field_tag :email, params[:email]
+		
+	%p
+		%label{:for => 'password'} Password
+		= password_field_tag :password, params[:password]
 
-	%label{:for => 'password'} Password
-	= password_field_tag :password, params[:password]
-
-	= submit_tag "Login", :id => 'save_button'
+	%p
+		= submit_tag "Login", :id => 'save_button'
 
 = link_to "Sign up", { :controller => 'users', :action => 'new' }, :class => 'sign_up_link'
 

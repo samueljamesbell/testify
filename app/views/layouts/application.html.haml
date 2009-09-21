@@ -8,29 +8,30 @@
 		= stylesheet_link_tag 'style'
 		= javascript_include_tag :defaults
 	%body
-	
-		-	if logged_in?
-			= link_to "Ask for a review", :controller => 'demands', :action => 'new'
-			| Get a badge
-			| 
-			= link_to "Profile", user_path(current_user)
-			| Settings
-			|
-			= current_user.id
-			|
-			= link_to "Pending reviews", user_demands_path(current_user)
-			|
-			= link_to "Log out", logout_path
-		- else
-			= link_to "Log in", login_path
-			|
-			= link_to "Sign up", signup_path
-	
-		%h1 Testify!
-	
-		-	flash.each do |key, message|
-			=	content_tag :div, message, :class => key
 		
-		=	yield
+		#page
+			-	if logged_in?
+				= link_to "Ask for a review", :controller => 'demands', :action => 'new'
+				| Get a badge
+				| 
+				= link_to "Profile", user_path(current_user)
+				| Settings
+				|
+				= link_to "Pending reviews", user_demands_path(current_user)
+				|
+				= link_to "Log out", logout_path
+			- else
+				= link_to "Log in", login_path
+				|
+				= link_to "Sign up", signup_path
+
+			%h1 Testify!
+	
+			-	flash.each do |key, message|
+				=	content_tag :div, message, :class => key
 		
-		= render :partial => 'shared/footer'
+			#content
+		
+				=	yield
+		
+			= render :partial => 'shared/footer'
