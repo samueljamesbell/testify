@@ -13,6 +13,9 @@
 		= f.label :work, 'Job description'
 		= f.text_field :work
 	%p
+		= f.label :send_email, 'Send an email notification'
+		= f.check_box :send_email
+	%p
 		= f.submit "Continue", :id => 'save_button'
 
 		= link_to 'Cancel', user_path(current_user), :id => 'cancel_link'

@@ -6,3 +6,6 @@
 	= demand.company
 	%br
 	= demand.work
+	%br
+	%span{:id => "reminder_link_#{demand.id}"}
+		= link_to_remote "Send an email reminder", :url => { :controller => 'demands', :action => 'send_email', :id => demand.id }

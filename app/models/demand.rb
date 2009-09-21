@@ -2,6 +2,8 @@ class Demand < ActiveRecord::Base
 	belongs_to :user
 	
   before_create :process
+  
+  attr_accessor :send_email, :boolean
 	
 	require 'digest/sha1'
 	

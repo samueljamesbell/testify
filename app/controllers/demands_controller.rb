@@ -2,7 +2,7 @@ class DemandsController < ApplicationController
 	before_filter :authorise
 
 	def index
-	  @user = User.find_by_handle(params[:id])
+	  @user = current_user
 		@demands = current_user.demands.find(:all, :conditions => { :completed => false })
 	end
 	
@@ -22,10 +22,20 @@ class DemandsController < ApplicationController
 	def create
 		@demand = current_user.demands.build(params[:demand])
 		if @demand.save
-      Notifier.deliver_demand(@demand.name, @demand.work, @demand.email, @demand.code)
+			if @demand.send_email.to_i == 1
+      	Notifier.deliver_demand(@demand.name, @demand.work, @demand.email, @demand.code)
+      end
 		else
 			render :action => 'new'
 		end
+	end
+	
+	def send_email
+		@demand = Demand.find(params[:id])
+	 	Notifier.deliver_reminder(@demand.name, @demand.work, @demand.email, @demand.code)
+	 	respond_to do |format|
+	 		format.js
+	 	end
 	end
 	
 end

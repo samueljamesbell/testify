@@ -5,4 +5,8 @@
 = image_tag(@user.logo.url)
 
 %ul#demands
-	= render :partial => current_user.demands
+	- if !current_user.demands.empty?
+		= render :partial => current_user.demands
+	- else
+		You haven't requested any reviews. 
+		= link_to 'Ask for one now?', :controller => 'demands', :action => 'new'
