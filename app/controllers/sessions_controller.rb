@@ -8,18 +8,18 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         uri = session[:original_uri]
         session[:original_uri] = nil
-        flash.now[:notice] = "Successfully logged in."                                                           
+        flash[:success] = "Successfully logged in."                                                           
         redirect_to user_path(user)
       else
-        flash.now[:error] = "Invalid user/password combination. Try again."
+        flash[:error] = "Invalid email/password combination. Try again."
       end
     end
   end
 
   def logout
     session[:user_id] = nil
-    flash.now[:notice] = "Logged out"
-    redirect_to :controller => 'pages', :action => 'index'
+    flash[:notice] = "Logged out."
+    redirect_to welcome_path
   end
 
 end
