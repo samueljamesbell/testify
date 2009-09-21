@@ -1,18 +1,14 @@
-- form_for(@user) do |f|
+-	form_for(@user, :html => { :multipart => true }) do |f|
 	= f.error_messages
 	%p
 		= f.label :name
 		%br
 		= f.text_field :name
 	%p
-		= f.label :handle, 'Choose your unique URL'
-		%br
-		= f.text_field :handle
-	%p
 		= f.label :email
 		%br
 		= f.text_field :email
-	%p
+	%p.divider
 		= f.label :password, 'Password'
 		%br
 		= f.password_field :password
@@ -20,6 +16,10 @@
 		= f.label :password_confirmation, 'Confirm Password'
 		%br
 		= f.password_field :password_confirmation
+	%p.divider
+		= f.label :logo, 'Upload an image or logo'
+		%br
+		= f.file_field :logo
 	%p
 		= f.submit "Update", :id => 'save_button'
 		= link_to 'Cancel', user_path(@user), :id => 'cancel_link'

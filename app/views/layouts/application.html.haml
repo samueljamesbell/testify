@@ -15,7 +15,8 @@
 				| Get a badge
 				| 
 				= link_to "Profile", user_path(current_user)
-				| Settings
+				| 
+				= link_to 'Settings', edit_user_path(current_user)
 				|
 				= link_to "Pending reviews", user_demands_path(current_user)
 				|

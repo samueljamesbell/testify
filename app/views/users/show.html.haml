@@ -1,6 +1,6 @@
-%h3= @user.name
+= image_tag @user.logo.url(:thumb), :id => 'logo'
 
-= image_tag(@user.logo.url)
+%h3= @user.name
 
 %ul#reviews
 	= render :partial => @user.reviews

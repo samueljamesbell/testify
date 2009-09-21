@@ -1,8 +1,8 @@
-%h2 Pending Reviews
+= image_tag @user.logo.url(:thumb), :id => 'logo'
 
 %h3= @user.name
 
-= image_tag(@user.logo.url)
+%h4#pending_reviews Pending Reviews
 
 %ul#demands
 	- if !current_user.demands.empty?

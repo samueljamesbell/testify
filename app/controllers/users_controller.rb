@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+	  @user = User.find_by_handle(params[:id])
+	  redirect_to welcome_path unless @user == current_user
   end
 
   def create
@@ -20,15 +21,15 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       session[:user_id] = @user.id
     else
-      redirect_to :action => 'new'
+      render :action => 'new'
     end
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find_by_handle(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = 'Your account details have been updated.'
-      redirect_to :controller => 'pages', :action => 'index'
+      redirect_to user_path(@user)
     else
       flash[:error] = 'There was a problem updating your details.'
       redirect_to :action => 'edit'
