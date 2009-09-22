@@ -7,7 +7,7 @@
 %p
 	=	@demand.email
 
--	form_for([current_user, @review]) do |f|
+-	form_for([@demand.user, @review]) do |f|
 	= f.error_messages
 	%p
 		= f.label :body, 'Review'
