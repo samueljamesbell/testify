@@ -15,7 +15,7 @@
 		
 	- if current_user != @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
-			Name:
+			Company:
 			= review.company
 		%br
 	- elsif current_user == @user && review.company_hidden?

@@ -18,7 +18,7 @@
 		= f.text_field :work
 	%p
 		= f.label :send_email, 'Send an email notification'
-		= f.check_box :send_email
+		= f.check_box :send_email, :checked => true
 	%p
 		= f.submit "Continue", :id => 'save_button'
 
