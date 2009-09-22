@@ -1,5 +1,5 @@
 class DemandsController < ApplicationController
-	before_filter :authorise
+	before_filter :authorise, :except => :show
 
 	def index
 	  @user = current_user
