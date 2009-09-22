@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
 		users.resources :reviews, :member => { :hide_name => [:get, :post], :unhide_name => [:get, :post] }
 		users.resources :demands
 	end
+	
+	map.resources :emails
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'

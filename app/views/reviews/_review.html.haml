@@ -1,46 +1,45 @@
 %li
 	- if current_user != @user && !review.name_hidden?
 		%span{:id => "name_#{review.id}"}
-			Name:
+			%span.bold Name:
 			= review.name
-		%br
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && review.name_hidden?
 		%span{:id => "name_#{review.id}"}
 			= render :partial => 'reviews/name_greyed', :locals => { :review => review }
-		%br
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && !review.name_hidden?
 		%span{:id => "name_#{review.id}"}
 			= render :partial => 'reviews/name', :locals => { :review => review }
-		%br
-		
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- if current_user != @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
-			Company:
+			%span.bold Company:
 			= review.company
-		%br
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company_greyed', :locals => { :review => review }
-		%br
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company', :locals => { :review => review }
-		%br
+			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-	Project:
+	%span.bold Project:
 	= review.work
+
+	%p.review
+		= review.body
 	%br
-	Review:
-	= review.body
+	%span.bold Value for money:
+	= review.ratings_options.at(review.value_for_money)
 	%br
-	Value for money:
-	= review.value_for_money
+	%span.bold Time management:
+	= review.ratings_options.at(review.time_management)
 	%br
-	Time management:
-	= review.time_management
+	%span.bold Customer service:
+	= review.ratings_options.at(review.customer_service)
 	%br
-	Customer service:
-	= review.customer_service
-	%br
-	Overall quality:
-	= review.quality_of_service
+	%span.bold Overall quality:
+	= review.ratings_options.at(review.quality_of_service)

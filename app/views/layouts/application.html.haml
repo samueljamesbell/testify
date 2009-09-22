@@ -27,9 +27,11 @@
 				= link_to "Sign up", signup_path
 
 			%h1 Testify!
-	
+			
 			-	flash.each do |key, message|
 				=	content_tag :div, message, :class => key
+				
+			= yield :message
 		
 			#content
 		

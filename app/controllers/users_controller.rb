@@ -2,11 +2,15 @@ class UsersController < ApplicationController
 	before_filter :authorise, :only => ['edit', 'update', 'destroy']
 
   def new
+  	unless params[:dwarf] == 'sleepy'
+  		redirect_to welcome_path
+  	end
     @user = User.new
   end
   
   def show
 	  @user = User.find_by_handle(params[:id])
+	  @reviews = @user.reviews.sort { |x,y| y.total_rating <=> x.total_rating }
 	  unless @user
   	  flash[:error] = "An error has occurred. User could not be not found."
 	  	redirect_to welcome_path

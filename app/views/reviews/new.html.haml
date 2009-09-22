@@ -1,11 +1,17 @@
+- content_for :message do
+	#message
+		%h4 Careful!
+		The review you're about to write will be publicly available on this user's profile, so make sure you don't write anything you may regret! Please try to be as honest and open as you can.
+
 %p
-	=	@demand.name
+	%span.bold Name:
+	=	@demand.name.capitalize
 %p
-	=	@demand.company
+	%span.bold Company:
+	=	@demand.company.capitalize
 %p
-	=	@demand.work
-%p
-	=	@demand.email
+	%span.bold Project:
+	=	@demand.work.capitalize
 
 -	form_for([@demand.user, @review]) do |f|
 	= f.error_messages
@@ -16,21 +22,57 @@
 		
 		=	f.hidden_field :demand_id
 	%p
-		= f.label :value_for_money
+		= f.label :value_for_money, "Value for money"
 		%br
-		= f.select :value_for_money, @choices
+		= f.radio_button :value_for_money, 4, :checked => true
+		Excellent
+		= f.radio_button :value_for_money, 3
+		Good
+		= f.radio_button :value_for_money, 2
+		Average
+		= f.radio_button :value_for_money, 1
+		Poor
+		= f.radio_button :value_for_money, 0
+		Awful
 	%p
-		= f.label :time_management
+		= f.label :time_management, "Time management"
 		%br
-		= f.select :time_management, @choices
+		= f.radio_button :time_management, 4, :checked => true
+		Excellent
+		= f.radio_button :time_management, 3
+		Good
+		= f.radio_button :time_management, 2
+		Average
+		= f.radio_button :time_management, 1
+		Poor
+		= f.radio_button :time_management, 0
+		Awful
 	%p
-		= f.label :customer_service
+		= f.label :customer_service, "Customer service"
 		%br
-		= f.select :customer_service, @choices
+		= f.radio_button :customer_service, 4, :checked => true
+		Excellent
+		= f.radio_button :customer_service, 3
+		Good
+		= f.radio_button :customer_service, 2
+		Average
+		= f.radio_button :customer_service, 1
+		Poor
+		= f.radio_button :customer_service, 0
+		Awful
 	%p
-		= f.label :quality_of_service, 'Overall quality'
+		= f.label :quality_of_service, "Overall quality"
 		%br
-		= f.select :quality_of_service, @choices
+		= f.radio_button :quality_of_service, 4, :checked => true
+		Excellent
+		= f.radio_button :quality_of_service, 3
+		Good
+		= f.radio_button :quality_of_service, 2
+		Average
+		= f.radio_button :quality_of_service, 1
+		Poor
+		= f.radio_button :quality_of_service, 0
+		Awful
 	%p
 		= f.submit "Continue", :id => 'save_button'
 		= link_to 'Cancel', user_path(@demand.user), :id => 'cancel_link'

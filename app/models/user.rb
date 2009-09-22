@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   acts_as_url :handle
   
+  def ratings_options
+		@ratings_options = ['awful', 'poor', 'average', 'good', 'excellent']
+	end
+  
   def to_param
   	url
   end
@@ -45,7 +49,28 @@ class User < ActiveRecord::Base
     create_new_salt
     self.hashed_password = User.encrypted_password(self.password, self.salt)
   end
-
+  
+  
+	def time_management_mean
+		time_management_sum = reviews.inject(0) {|sum, review| sum += review.time_management}
+		time_management_sum / reviews.length
+	end
+	
+	def customer_service_mean
+		customer_service_sum = reviews.inject(0) {|sum, review| sum += review.customer_service}
+		customer_service_sum / reviews.length
+	end
+	
+	def value_for_money_mean
+		value_for_money_sum = reviews.inject(0) {|sum, review| sum += review.value_for_money}
+		value_for_money_sum / reviews.length
+	end
+	
+	def quality_of_service_mean
+		quality_of_service_sum = reviews.inject(0) {|sum, review| sum += review.quality_of_service}
+		quality_of_service_sum / reviews.length
+	end
+	
 private
 
   def password_non_blank

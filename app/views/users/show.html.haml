@@ -1,6 +1,29 @@
+- if !logged_in?
+	- content_for :message do
+		#message
+			%h4
+				Testify helps you find what they 
+				%span.italic really 
+				thought.
+			Testify is the new platform to get your customer's opinions. By collecting short &amp; simple testimonials from your previous clients, you can improve your service, and use your reviews to prove your potential. 
+
 = image_tag @user.logo.url(:thumb), :id => 'logo'
 
 %h3= @user.name
 
+#averages
+	%h4 Average ratings
+	Time management:
+	%span.bold= @user.ratings_options.at(@user.time_management_mean.round)
+	%br
+	Customer service: 
+	%span.bold= @user.ratings_options.at(@user.customer_service_mean.round)
+	%br
+	Value for money: 
+	%span.bold= @user.ratings_options.at(@user.value_for_money_mean.round)
+	%br
+	Overall quality:
+	%span.bold= @user.ratings_options.at(@user.quality_of_service_mean.round)
+	
 %ul#reviews
-	= render :partial => @user.reviews
+	= render :partial => @reviews

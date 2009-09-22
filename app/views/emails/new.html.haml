@@ -1,0 +1,9 @@
+-	form_for(@email) do |f|
+	- f.error_messages
+	
+	%p
+		= f.label :address, 'Email address'
+		= f.text_field :address
+		
+	%p
+		= f.submit 'Submit'

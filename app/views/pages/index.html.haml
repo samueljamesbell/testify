@@ -1,3 +1,13 @@
 %h2 Welcome!
 
 Do something...
+
+#email_form
+	-	form_for(@email) do |f|
+		- f.error_messages
+		%h4 Find out more!
+		Since we're still in closed beta for the moment, enter your email address below and we'll keep you in the loop. We won't spam or give out your information, and you'll only get one email from us, to let you know that Testify is ready to launch. Promise.
+		%p
+			= f.label :address, 'Email address'
+			= f.text_field :address		
+			= f.submit 'Submit'
