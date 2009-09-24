@@ -20,8 +20,8 @@ class ReviewsController < ApplicationController
 		@demand = Demand.find(@review.demand_id)
 		@review.update_attributes(:name => @demand.name, :company => @demand.company, :email => @demand.email, :user_id => @demand.user_id, :work => @demand.work)
 		if @review.save
-			@demand.toggle! :completed
-			@demand.toggle! :code_used
+			@demand.update_attribute :completed, true
+			@demand.update_attribute :code_used, true
 			Notifier.deliver_review_completed(@review.name, @review.work, @demand.user.email, @review.user.handle)
 			flash[:success] = 'Your review was created and saved successfully.'
 			redirect_to user_path(@review.user)
