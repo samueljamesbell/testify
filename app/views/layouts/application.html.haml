@@ -11,7 +11,7 @@
 		
 		#page
 			-	if logged_in?
-				= link_to "Ask for a review", :controller => 'demands', :action => 'new'
+				= link_to "Request feedback", :controller => 'demands', :action => 'new'
 				| Get a badge
 				| 
 				= link_to "Profile", user_path(current_user)

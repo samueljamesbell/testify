@@ -53,22 +53,38 @@ class User < ActiveRecord::Base
   
 	def time_management_mean
 		time_management_sum = reviews.inject(0) {|sum, review| sum += review.time_management}
-		time_management_sum / reviews.length
+		if reviews.empty?
+			4
+		else
+			time_management_sum / reviews.length
+		end
 	end
 	
 	def customer_service_mean
 		customer_service_sum = reviews.inject(0) {|sum, review| sum += review.customer_service}
-		customer_service_sum / reviews.length
+		if reviews.empty?
+			4
+		else
+			customer_service_sum / reviews.length
+		end
 	end
 	
 	def value_for_money_mean
 		value_for_money_sum = reviews.inject(0) {|sum, review| sum += review.value_for_money}
-		value_for_money_sum / reviews.length
+		if reviews.empty?
+			4
+		else
+			value_for_money_sum / reviews.length
+		end
 	end
 	
 	def quality_of_service_mean
 		quality_of_service_sum = reviews.inject(0) {|sum, review| sum += review.quality_of_service}
-		quality_of_service_sum / reviews.length
+		if reviews.empty?
+			4
+		else
+			quality_of_service_sum / reviews.length
+		end
 	end
 	
 private

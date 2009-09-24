@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:success] = 'Your account has been created. Thanks for signing up!'
-      redirect_to user_path(@user)
+      redirect_to user_path(@user, :first_time => 'true')
       session[:user_id] = @user.id
     else
       render :action => 'new'

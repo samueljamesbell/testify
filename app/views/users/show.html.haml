@@ -6,8 +6,13 @@
 				%span.italic really 
 				thought.
 			Testify is the new platform to get your customer's opinions. By collecting short &amp; simple testimonials from your previous clients, you can improve your service, and use your reviews to prove your potential and get more business.
-			= link_to 'Find out more &raquo;', welcome_path 
-
+			= link_to 'Find out more &raquo;', welcome_path
+- elsif params[:first_time] == 'true'
+	-content_for :message do
+		#message
+			%h4 Welcome to Testify!
+			Thanks for signing up. You're now ready to get testimonials from your clients, and build a profile of awesome feedback. To get started,
+			= link_to 'request feedback.', new_user_demand_path(current_user)
 = image_tag @user.logo.url(:thumb), :id => 'logo'
 
 %h3= @user.name
@@ -27,4 +32,12 @@
 	%span.bold= @user.ratings_options.at(@user.quality_of_service_mean.round)
 	
 %ul#reviews
-	= render :partial => @reviews
+	- if !@user.demands.empty?
+		= render :partial => @user.demands
+	- else
+		%li
+			- if logged_in?
+				No one's reviewed you yet! 
+				= link_to 'Request feedback?', new_user_demand_path(current_user)
+			- else
+				This user hasn't been reviewed yet.
