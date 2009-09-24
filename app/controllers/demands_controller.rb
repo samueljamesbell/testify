@@ -3,7 +3,7 @@ class DemandsController < ApplicationController
 
 	def index
 	  @user = current_user
-		@demands = current_user.demands.find(:all, :conditions => { :completed => :false })
+		@demands = current_user.demands.find(:all, :conditions => {:completed => 0 })
 	end
 	
 	def show

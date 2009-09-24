@@ -5,8 +5,8 @@
 %h4#pending_reviews Pending Reviews
 
 %ul#demands
-	- if !current_user.demands.empty?
-		= render :partial => current_user.demands
+	- if !@demands.empty?
+		= render :partial => @demands
 	- else
 		%li
 			You haven't requested any reviews. 
