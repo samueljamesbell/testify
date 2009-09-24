@@ -32,8 +32,8 @@
 	%span.bold= @user.ratings_options.at(@user.quality_of_service_mean.round)
 	
 %ul#reviews
-	- if !@user.demands.empty?
-		= render :partial => @user.demands
+	- if !@user.reviews.empty?
+		= render :partial => @user.reviews
 	- else
 		%li
 			- if logged_in?
