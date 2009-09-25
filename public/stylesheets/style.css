@@ -1,4 +1,4 @@
-h1 {
+#testify_logo {
 	margin-left: 12px;
 }
 
@@ -179,30 +179,11 @@ h4#pending_reviews {
 	padding-bottom:	22px;
 }
 
-#errorExplanation ul li {
-	background: none;
-	border: none;
-	margin-left: -40px;
-}
-
-#errorExplanation {
-background: #FBE3E4;
-color: #8a1f11;
-border: 2px solid #FBC2C4;
-padding: 5px;
-}
-
-.fieldWithErrors label {
-	color: #8a1f11;
-	font-weight: bold;
-	padding: 0;
-	margin: 0;
-}
-
-.fieldWithErrors {
-	padding: 0;
-	margin: 0;
-	height: auto;
-	width: auto;
-	border: none;
+#badge {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	width: 252px;
+	display: block;
+	padding-bottom: 25px;
 }

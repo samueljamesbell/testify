@@ -1,0 +1,14 @@
+%h3 Get a badge
+
+Use your profile - full of awesome testimonials -  to demonstrate your true potential to prospective clients.
+You can get a badge like this one to link your website to your profile, just copy the code from below.
+
+= image_tag 'badge.png', :id => 'badge'
+
+.notice
+	&== #{"<a href=\"http://testifyapp.com/" + current_user.handle + "\"><img src=\"http://testifyapp.com/images/badge.png\" alt=\"See what our customers think of us on Testify\"></a>"}
+
+#message
+	Alternatively, you can just use the following link to get to share your profile.
+	%br
+	= link_to "http://testifyapp.com/#{current_user.handle}", user_path(current_user)

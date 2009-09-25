@@ -17,7 +17,7 @@
 					%li= link_to "Log in", login_path
 					%li#last= link_to "Sign up", signup_path
 
-			%h1 Testify!
+			= image_tag 'logo.png', :id => 'testify_logo'
 			
 			-	flash.each do |key, message|
 				=	content_tag :div, message, :class => key

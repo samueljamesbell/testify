@@ -8,6 +8,10 @@ class ReviewsController < ApplicationController
 		if !@demand || @demand.completed?
 			redirect_to home_path
 		end
+    respond_to do |format|
+    	format.html { render :layout => 'application' }
+    	format.xml { render :layout => false }
+    end
 	rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to create new review with invalid demand id. #{params[:demand_id]}" )
     flash[:error] = "An error has occurred. Demand not found."
