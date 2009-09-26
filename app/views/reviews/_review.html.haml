@@ -3,30 +3,24 @@
 		%span{:id => "name_#{review.id}"}
 			%span.bold Name:
 			= review.name
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && review.name_hidden?
 		%span{:id => "name_#{review.id}"}
 			= render :partial => 'reviews/name_greyed', :locals => { :review => review }
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && !review.name_hidden?
 		%span{:id => "name_#{review.id}"}
 			= render :partial => 'reviews/name', :locals => { :review => review }
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- if current_user != @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
-			%span.bold Company:
+			%span.bold#review_company Company:
 			= review.company
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company_greyed', :locals => { :review => review }
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	- elsif current_user == @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company', :locals => { :review => review }
-			&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
-	%span.bold Project:
+	%span.bold#review_project Project:
 	= review.work
 
 	%p.important

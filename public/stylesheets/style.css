@@ -191,3 +191,11 @@ h4#pending_reviews {
 	display: block;
 	padding-bottom: 25px;
 }
+
+#review_company {
+	margin-left: 25px;
+}
+
+#review_project {
+	margin-left: 25px;
+}

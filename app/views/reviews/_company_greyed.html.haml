@@ -1,4 +1,4 @@
 %span#greyed
-	%span.bold Company:
+	%span.bold#review_company Company:
 	= review.company
 = link_to_remote "unhide", :url => { :controller => 'reviews', :action => 'unhide_company', :id => review.id }
