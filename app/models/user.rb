@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 		@ratings_options = ['awful', 'poor', 'average', 'good', 'excellent']
 	end
   
+  # a comment
   def to_param
   	url
   end
