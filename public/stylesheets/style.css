@@ -77,6 +77,10 @@ ul#demands {
 	margin-left: -40px;
 }
 
+ul#demands li a {
+	text-decoration: underline;
+}
+
 h4#pending_reviews {
 	float: left;
 	margin-top: -10px;

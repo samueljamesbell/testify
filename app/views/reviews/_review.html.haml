@@ -32,14 +32,14 @@
 	%p.important
 		= review.body
 	%br
-	%span.bold Value for money:
-	= review.ratings_options.at(review.value_for_money)
+	Value for money:
+	%span.bold= "#{review.value_for_money}/5"
 	%br
-	%span.bold Time management:
-	= review.ratings_options.at(review.time_management)
+	Time management:
+	%span.bold= "#{review.time_management}/5"
 	%br
-	%span.bold Customer service:
-	= review.ratings_options.at(review.customer_service)
+	Customer service:
+	%span.bold= "#{review.customer_service}/5"
 	%br
-	%span.bold Overall quality:
-	= review.ratings_options.at(review.quality_of_service)
+	Overall quality:
+	%span.bold= "#{review.quality_of_service}/5"

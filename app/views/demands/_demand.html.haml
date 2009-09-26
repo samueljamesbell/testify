@@ -1,11 +1,15 @@
 %li
+	%span.bold Name:
 	= demand.name
 	%br
+	%span.bold Email:
 	= demand.email
 	%br
+	%span.bold Company:
 	= demand.company
 	%br
+	%span.bold Project:
 	= demand.work
-	%br
+	%p
 	%span{:id => "reminder_link_#{demand.id}"}
 		= link_to_remote "Send an email reminder", :url => { :controller => 'demands', :action => 'send_email', :id => demand.id }
