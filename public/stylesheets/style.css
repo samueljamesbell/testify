@@ -74,7 +74,7 @@ ul#reviews {
 }
 
 ul#reviews li a {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 ul#demands {
