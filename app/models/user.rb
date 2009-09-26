@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   	url
   end
 
-	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '250x250>'}
+	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '175x175>'}
 	
 	validates_attachment_presence :logo
 	
