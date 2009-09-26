@@ -35,13 +35,6 @@ namespace :deploy do
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
   end
-  
-	after 'deploy:symlink', 'deploy:create_logos_symlinks'
-	  desc "Symlinks logos folder"
-	  task :create_logos_symlinks, :roles => :app do
- 	   run "rm -rf #{current_path}/public/logos"
- 	   run "ln -s #{shared_path}/logos #{current_path}/public/logos"
-	 	end
 end
 
 # optional task to reconfigure databases
