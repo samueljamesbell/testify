@@ -73,6 +73,10 @@ ul#reviews {
 	margin-left: -40px;
 }
 
+ul#reviews li a {
+	text-decoration: none;
+}
+
 ul#demands {
 	margin-top: 100px;
 	margin-left: -40px;
