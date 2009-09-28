@@ -1,5 +1,5 @@
 -	form_for(@email) do |f|
-	
+	= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
 	%p
 		= f.label :address, 'Email address'
 		= f.text_field :address

@@ -206,3 +206,27 @@ h4#pending_reviews {
 #review_project {
 	margin-left: 25px;
 }
+
+.fieldWithErrors {
+	display: inline;
+	padding: none;
+	margin: 0;
+	border: 0;
+}
+
+#errorExplanation ul li {
+background: #FBE3E4; color: #8a1f11; border-color: #FBC2C4;
+}
+
+#errorExplanation ul {
+	margin-left: -40px;
+}
+
+.fieldWithErrors input {
+	background-color: #FBE3E4;
+}
+
+#cancel_link {
+	color: #64001C;
+	text-decoration: underline;
+}

@@ -18,8 +18,7 @@ class User < ActiveRecord::Base
 	
 	validates_attachment_presence :logo
 	
-	validates_presence_of     :email
-	validates_presence_of     :name
+	validates_presence_of     :email, :name, :handle
 	
   validates_uniqueness_of   :email
   validates_uniqueness_of 	:handle
@@ -93,7 +92,7 @@ class User < ActiveRecord::Base
 private
 
   def password_non_blank
-    errors.add(:password, "Missing password" ) if hashed_password.blank?
+    errors.add(:password, "can't be blank" ) if hashed_password.blank?
   end
 
   def self.encrypted_password(password, salt)
