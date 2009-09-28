@@ -80,7 +80,7 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address  => "smtp.gmail.com",
   :port  => "587", 
-  :user_name  => "sam@designhou.se",
-	:password  => "terraced",
+  :user_name  => "shout@testifyapp.com",
+	:password  => "MtF1212",
   :authentication  => :plain
     } 
