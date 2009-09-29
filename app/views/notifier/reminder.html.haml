@@ -1,5 +1,20 @@
-Hey!
+%p
+	Hey
+	= @demand.name.capitalize
 
-Reminder:
+%p
+	= @demand.user.name.capitalize
+	wants to remind you to provide feedback on the following:
+	%br
+	%b= @demand.work.capitalize
 
-= link_to @link, @link
+%p
+	To let them know what you thought, go to:
+	%br
+	= link_to @link, @link
+
+%p
+	Thanks,
+
+%p
+	The Testify Team

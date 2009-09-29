@@ -1,10 +1,20 @@
 %p
-	Hey!
+	Hey
+	= @review.user.name.capitalize
 
 %p
-	= @name
-	wrote a review about you!
+	= @review.name.capitalize
+	has reviewed you on for the following:
+	%br
+	%b= @review.work.capitalize
 
 %p
-	You can see it on your profile here:
+	To see what they thought, you can view your profile
+	%br
 	= link_to @link, @link
+
+%p
+	Thanks,
+
+%p
+	The Testify Team

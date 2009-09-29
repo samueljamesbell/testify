@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
 		if @review.save
 			@demand.update_attribute :completed, true
 			@demand.update_attribute :code_used, true
-			Notifier.deliver_review_completed(@review.name, @review.work, @demand.user.email, @review.user.handle)
+			Notifier.deliver_review_completed(@review)
 			flash[:success] = 'Your review was created and saved successfully.'
 			redirect_to user_path(@review.user)
 		else

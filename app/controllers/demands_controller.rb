@@ -24,7 +24,7 @@ class DemandsController < ApplicationController
 		if @demand.save
 			if @demand.send_email.to_i == 1
 				flash[:success] = 'Request for review successful.'
-      	Notifier.deliver_demand(@demand.name, @demand.work, @demand.email, @demand.code)
+      	Notifier.deliver_demand(@demand)
       end
 		else
 			render :action => 'new'
@@ -33,7 +33,7 @@ class DemandsController < ApplicationController
 	
 	def send_email
 		@demand = Demand.find(params[:id])
-	 	Notifier.deliver_reminder(@demand.name, @demand.work, @demand.email, @demand.code)
+	 	Notifier.deliver_reminder(@demand)
 	 	respond_to do |format|
 	 		format.js
 	 	end

@@ -1,3 +1,20 @@
-Hey!
+%p
+	Hey
+	= @demand.name.capitalize
 
-= link_to @link, @link
+%p
+	= @demand.user.name.capitalize
+	has requested feedback from you for the following project:
+	%br
+	%b= @demand.work.capitalize
+
+%p
+	To let them know what you thought, go to:
+	%br
+	= link_to @link, @link
+
+%p
+	Thanks,
+
+%p
+	The Testify Team
