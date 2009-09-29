@@ -42,6 +42,10 @@
 		%span.compulsory *
 		%br
 		= f.file_field :logo
+	%p.divider
+		= f.label :beta_code, 'Invite code'
+		%span.compulsory *
+		= f.text_field :beta_code
 	%p
 		= f.submit "Sign up", :id => 'save_button'
 		= link_to 'Cancel', { :controller => 'pages', :action => 'index' }, :id => 'cancel_link'

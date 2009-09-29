@@ -13,19 +13,19 @@ class User < ActiveRecord::Base
   def to_param
   	url
   end
-
+  
 	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '175x175>'}
 	
 	validates_attachment_presence :logo
 	
-	validates_presence_of     :email, :name, :handle
+	validates_presence_of     :email, :name, :handle, :beta_code
 	
   validates_uniqueness_of   :email
   validates_uniqueness_of 	:handle
   
 	validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
   
-  attr_accessor :password_confirmation
+  attr_accessor :password_confirmation, :beta_code
 
   validates_confirmation_of :password
   validate :password_non_blank

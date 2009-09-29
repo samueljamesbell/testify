@@ -24,6 +24,16 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end
+  
+  def admin?
+  	logged_in? && current_user.email == 'samueljamesbell@googlemail.com'
+  end
+  
+  def ensure_admin
+		unless admin?
+  		redirect_to welcome_path
+  	end
+  end
 
   def logged_in?
     !current_user.nil?

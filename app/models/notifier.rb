@@ -29,5 +29,15 @@ class Notifier < ActionMailer::Base
     body[:review] = review
     body[:link] = "http://testifyapp.com/#{review.user.handle}"
   end
+  
+  def beta_invite(name, email, code)
+    @recipients  = email
+    @from        = "shout@testifyapp.com"
+    @subject     = "Welcome to Testify"
+    @sent_on     = Time.now
+    @content_type = 'text/html'
+    body[:name] = name
+    body[:code] = code
+  end
 
 end
