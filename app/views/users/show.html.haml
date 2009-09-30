@@ -30,10 +30,10 @@
 	%br
 	Overall quality:
 	%span.bold= @user.ratings_options.at(@user.quality_of_service_mean.round)
-	
+
 %ul#reviews
-	- if !@user.reviews.empty?
-		= render :partial => @user.reviews
+	- if !@reviews.empty?
+		= render :partial => @reviews
 	- else
 		%li
 			- if logged_in?

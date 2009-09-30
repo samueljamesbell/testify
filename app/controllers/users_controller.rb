@@ -7,11 +7,9 @@ class UsersController < ApplicationController
   
   def show
 	  @user = User.find_by_handle(params[:id])
-	  if logged_in? && @user == current_user
-	  	@reviews = @user.reviews.find(:all, :order => 'created_at desc')
-	  else
-	  	@reviews = @user.reviews.sort { |x,y| y.total_rating <=> x.total_rating }
-	  end
+	  @reviews = @user.limited_reviews
+# 	reviews can = @user.reviews for paying users. below code sorts by total_rating
+#	  @reviews = @user.reviews.sort { |x,y| y.total_rating <=> x.total_rating }[0..1]
 	  unless @user
   	  flash[:error] = "An error has occurred. User could not be not found."
 	  	redirect_to welcome_path

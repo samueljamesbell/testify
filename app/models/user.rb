@@ -1,6 +1,7 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
 	has_many :reviews
+	has_many :limited_reviews, :class_name => 'Review', :foreign_key => 'user_id', :limit => 2, :order => 'created_at desc'
 	has_many :demands
 
   acts_as_url :handle
