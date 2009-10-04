@@ -14,11 +14,11 @@
 				= render :partial => 'shared/navigation'
 			- else
 				%ul#navigation
-					%li= link_to "Log in", login_path
-					%li#last= link_to "Sign up", signup_path
+					%li#login= link_to "Log in", login_path
+					-# %li#last= link_to "Sign up", signup_path
 
 			= image_tag 'logo.png', :id => 'testify_logo'
-			
+
 			-	flash.each do |key, message|
 				=	content_tag :div, message, :class => key
 				

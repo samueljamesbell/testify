@@ -1,3 +1,2 @@
-%span.bold#review_company Company:
-= review.company
+%span.bold= review.company
 = link_to_remote "hide", :url => { :controller => 'reviews', :action => 'hide_company', :id => review.id }

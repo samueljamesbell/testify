@@ -1,4 +1,3 @@
 %span#greyed
-	%span.bold Name:
-	= review.name
+	%span.bold= review.name
 = link_to_remote "unhide", :url => { :controller => 'reviews', :action => 'unhide_name', :id => review.id }

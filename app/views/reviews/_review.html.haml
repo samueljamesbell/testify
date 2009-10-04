@@ -1,27 +1,27 @@
 %li
+
+	%h3= review.work.capitalize
+	By
 	- if current_user != @user && !review.name_hidden?
 		%span{:id => "name_#{review.id}"}
-			%span.bold Name:
-			= review.name
+			%span.bold= review.name
 	- elsif current_user == @user && review.name_hidden?
 		%span{:id => "name_#{review.id}"}
 			= render :partial => 'reviews/name_greyed', :locals => { :review => review }
 	- elsif current_user == @user && !review.name_hidden?
 		%span{:id => "name_#{review.id}"}
 			= render :partial => 'reviews/name', :locals => { :review => review }
+	- if !review.name_hidden? && !review.company_hidden?
+		at
 	- if current_user != @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
-			%span.bold#review_company Company:
-			= review.company
+			%span.bold= review.company
 	- elsif current_user == @user && review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company_greyed', :locals => { :review => review }
 	- elsif current_user == @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company', :locals => { :review => review }
-
-	%span.bold#review_project Project:
-	= review.work
 
 	%p.important
 		= review.body
@@ -37,5 +37,4 @@
 	%br
 	Overall quality:
 	%span.bold= "#{review.quality_of_service}/5"
-	
-	= review.created_at
+
