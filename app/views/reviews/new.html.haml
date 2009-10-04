@@ -1,14 +1,14 @@
 - content_for :message do
 	#message
-		%h4 Careful!
-		The review you're about to write will be publicly available on this user's profile, so make sure you don't write anything you may regret! Please try to be as honest and open as you can.
+		%h4= "#{@demand.user.name} has requested your opinion"
+		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
 
 %p
 	%span.bold Name:
 	=	@demand.name.capitalize
 %p
 	%span.bold Company:
-	=	@demand.company.capitalize
+	=	@demand.company
 %p
 	%span.bold Project:
 	=	@demand.work.capitalize
