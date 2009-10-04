@@ -1,3 +1,4 @@
+
 #testify_logo {
 	margin-left: 12px;
 	padding-bottom: 15px;
@@ -69,7 +70,7 @@ ul#navigation li a:hover {
 }
 
 ul#reviews {
-	margin-top: 20px;
+	margin-top: 138px;
 	margin-left: -40px;
 }
 
@@ -114,11 +115,13 @@ h4#pending_reviews {
 	float: left;
 	font-size: 14px;
 	line-height: 18px;
-	margin-top: 115px;
+	width: 385px;
 }
 
 #averages h4 {
-	margin-top: 0px;
+	margin-top: 0;
+	line-height: 16px;
+	margin-bottom: -10px;
 }
 
 #email_form {
@@ -241,4 +244,5 @@ ul#navigation #login {
 	border-right: none;
 	float: right;
 }
+
 
