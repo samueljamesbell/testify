@@ -1,13 +1,5 @@
-- if !logged_in?
-	- content_for :message do
-		#message
-			%h4
-				Testify helps you find what they 
-				%span.italic really 
-				thought.
-			Testify is the new platform to get your customer's opinions. By collecting short &amp; simple testimonials from your previous clients, you can improve your service, and use your reviews to prove your potential and close more deals.
-			= link_to 'Find out more &raquo;', welcome_path
-- elsif params[:first_time] == 'true'
+
+- if params[:first_time] == 'true'
 	-content_for :message do
 		#message
 			%h4 Welcome to Testify!
@@ -15,7 +7,11 @@
 			= link_to 'request feedback.', new_user_demand_path(current_user)
 = image_tag @user.logo.url(:small), :id => 'logo'
 
-%h3= @user.name
+%h3#big_name= @user.name
+%br
+Is using Testify to more business and improve your service, simply by collecting the following testimonials.
+%br
+%br
 
 #averages
 	%h4 Average ratings
