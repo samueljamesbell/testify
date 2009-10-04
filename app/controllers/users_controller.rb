@@ -34,21 +34,21 @@ class UsersController < ApplicationController
   end
 
   def create
-		code = Invite.find(:first, :conditions => { :code => params[:user][:beta_code] } )
-		if code.nil? || code.used?
-  		flash[:error] = 'Your invitation code is invalid.'
-  		redirect_to :action => 'new'
-  	else
+#		code = Invite.find(:first, :conditions => { :code => params[:user][:beta_code] } )
+#		if code.nil? || code.used?
+#  		flash[:error] = 'Your invitation code is invalid.'
+#  		redirect_to :action => 'new'
+#  	else
     	@user = User.new(params[:user])
     	if @user.save
-   			code.update_attribute :used, true
+#   			code.update_attribute :used, true
    	  	flash[:success] = 'Your account has been created. Thanks for signing up!'
    	  	redirect_to user_path(@user, :first_time => 'true')
    	  	session[:user_id] = @user.id
    		else
    	  	render :action => 'new'
    		end
-   	end
+#   	end
   end
 
   def update
