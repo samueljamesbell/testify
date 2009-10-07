@@ -37,7 +37,7 @@ simply by collecting the following testimonials.
 		= render :partial => @reviews
 	- else
 		%li
-			- if logged_in?
+			- if logged_in? && @user == current_user
 				No one's reviewed you yet! 
 				= link_to 'Request feedback?', new_user_demand_path(current_user)
 			- else
