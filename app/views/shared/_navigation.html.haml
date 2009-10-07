@@ -1,5 +1,5 @@
 %ul#navigation
-	%li= link_to 'Profile', user_path(current_user)
+	%li= link_to 'My feedback', user_path(current_user)
 	%li= link_to 'Request feedback', :controller => 'demands', :action => 'new'
 	%li= link_to 'Pending reviews', user_demands_path(current_user)
 	%li= link_to 'Badges', :controller => 'badges', :action => 'index'
