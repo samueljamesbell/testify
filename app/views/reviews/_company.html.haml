@@ -1,2 +1,2 @@
-%span.bold= review.company
+%span.bold= review.company.titleize
 = link_to_remote "hide", :url => { :controller => 'reviews', :action => 'hide_company', :id => review.id }

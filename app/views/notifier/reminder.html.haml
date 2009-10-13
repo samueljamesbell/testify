@@ -1,12 +1,12 @@
 %p
 	Hey
-	= @demand.name.capitalize
+	= @demand.name.titleize
 
 %p
-	= @demand.user.name.capitalize
+	= @demand.user.name.titleize
 	wants to remind you to provide feedback on the following:
 	%br
-	%b= @demand.work.capitalize
+	%b= @demand.work.titleize
 
 %p
 	To let them know what you thought, go to:

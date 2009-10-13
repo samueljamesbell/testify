@@ -1,12 +1,12 @@
 %p
 	Hey
-	= @review.user.name.capitalize
+	= @review.user.name.titleize
 
 %p
-	= @review.name.capitalize
+	= @review.name.titleize
 	has reviewed you on for the following:
 	%br
-	%b= @review.work.capitalize
+	%b= @review.work.titleize
 
 %p
 	To see what they thought, you can view your profile

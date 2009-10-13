@@ -1,8 +1,8 @@
 %p
 	You've just requested a review from 
-	= @demand.name
+	= @demand.name.titleize
 	of 
-	= @demand.company
+	= @demand.company.titleize
 
 %p.important
 	The unique URL for this review (that you can send to your client) is:
@@ -15,7 +15,7 @@
 		= @demand.email
 		
 %p
-	= link_to "Return to profile", user_path(@demand.user)
+	= link_to "Return to my feedback", user_path(@demand.user)
 	|
 	= link_to "Request another review", :controller => 'demands', :action => 'new'
 	

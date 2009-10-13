@@ -1,17 +1,17 @@
 - content_for :message do
 	#message
-		%h4= "#{@demand.user.name} has requested your opinion"
+		%h4= "#{@demand.user.name.titleize} has requested your opinion"
 		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
 
 %p
 	%span.bold Name:
-	=	@demand.name
+	=	@demand.name.titleize
 %p
 	%span.bold Company:
-	=	@demand.company
+	=	@demand.company.titleize
 %p
 	%span.bold Project:
-	=	@demand.work.capitalize
+	=	@demand.work.titleize
 
 -	form_for([@demand.user, @review]) do |f|
 	= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"

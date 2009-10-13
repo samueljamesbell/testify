@@ -7,7 +7,7 @@
 			= link_to 'request feedback.', new_user_demand_path(current_user)
 = image_tag @user.logo.url(:small), :id => 'logo'
 
-%h3#big_name= @user.name
+%h3#big_name= @user.name.titleize
 %br
 %br
 Is using Testify to win more business and improve their service,
