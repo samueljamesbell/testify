@@ -1,6 +1,7 @@
 %li
 
 	%h3= review.work.titleize
+	
 	By
 	- if current_user != @user && !review.name_hidden?
 		%span{:id => "name_#{review.id}"}
@@ -22,6 +23,8 @@
 	- elsif current_user == @user && !review.company_hidden?
 		%span{:id => "company_#{review.id}"}
 			= render :partial => 'reviews/company', :locals => { :review => review }
+	= time_ago_in_words(review.created_at)
+	ago
 
 	%p.important
 		= review.body

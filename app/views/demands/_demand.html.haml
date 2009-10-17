@@ -10,6 +10,10 @@
 	%br
 	%span.bold Project:
 	= demand.work.titleize
+	%br
+	%span.bold Requested:
+	= time_ago_in_words(demand.created_at)
+	ago		
 	%p
 	%span{:id => "reminder_link_#{demand.id}"}
 		= link_to_remote "Send an email reminder", :url => { :controller => 'demands', :action => 'send_email', :id => demand.id }
