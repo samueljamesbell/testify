@@ -1,0 +1,2 @@
+page.replace_html('tweet_this', 'Tweeted!')
+page.visual_effect :highlight, 'tweet_this'

@@ -43,6 +43,9 @@
 	%br
 	Overall quality:
 	%span.bold= "#{review.quality_of_service + 1}/5"
-	- unless controller.controller_name == 'reviews' && controller.action_name == 'show'
-		%br
+	%br
+	- if controller.controller_name == 'reviews' && controller.action_name == 'show'
+		%span#tweet_this
+			= link_to_remote 'Tweet this!', :url => status_update_url(current_user, review)
+	- else
 		= link_to '+', short_user_review_path(@user, review)

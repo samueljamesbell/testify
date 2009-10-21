@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'  
   
+  map.status_update '/twitter/status_update/:user_id/:review_id', :controller => 'twitter', :action => 'status_update'
   map.login '/login', :controller => 'sessions', :action => 'login'
   map.logout '/logout', :controller => 'sessions', :action => 'logout'
   map.signup '/signup', :controller => 'users', :action => 'new'
