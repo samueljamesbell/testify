@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         uri = session[:original_uri]
         session[:original_uri] = nil
         flash[:success] = "Successfully logged in."                                                           
-        redirect_to user_path(user)
+        redirect_to short_user_path(user)
       else
         flash[:error] = "It looks like that wasn't quite right. Fancy another go?"
       end

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
   
   def show
-	  @user = User.find_by_handle(params[:id])
+	  @user = User.find_by_handle(params[:user_id])
 	  @reviews = @user.limited_reviews
 # 	reviews can = @user.reviews for paying users. below code sorts by total_rating
 #	  @reviews = @user.reviews.sort { |x,y| y.total_rating <=> x.total_rating }[0..1]
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     	@user = User.new(params[:user])
     	if @user.save
    			code.update_attribute :used, true
-   	  	redirect_to user_path(@user, :first_time => 'true')
+   	  	redirect_to short_user_path(@user, :first_time => 'true')
    	  	session[:user_id] = @user.id
    		else
    	  	render :action => 'new'
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @user = User.find_by_handle(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = 'Your account details have been updated.'
-      redirect_to user_path(@user)
+      redirect_to short_user_path(@user)
     else
       flash[:error] = 'There was a problem updating your details.'
       redirect_to :action => 'edit'
@@ -70,10 +70,10 @@ class UsersController < ApplicationController
     if @user == current_user
     	@user.destroy
 			flash[:notice] = 'Account terminated.'
-    	redirect_to :controller => 'pages', :action => 'index'
+    	redirect_to welcome_path
     else
     	flash[:error] = 'You don\'t have permission to do that!'
-    	redirect_to :controller => 'pages', :action => 'index'
+    	redirect_to welcome_path
     end
 	rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to destroy user with invalid id. #{params[:id]}" )

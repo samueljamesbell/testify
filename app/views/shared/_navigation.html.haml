@@ -1,7 +1,7 @@
 %ul#navigation
-	%li= link_to 'My feedback', user_path(current_user)
-	%li= link_to 'Request feedback', :controller => 'demands', :action => 'new'
-	%li= link_to 'Pending reviews', user_demands_path(current_user)
-	%li= link_to 'Badges', :controller => 'badges', :action => 'index'
-	%li= link_to 'Settings', edit_user_path(current_user)
+	%li= link_to 'My feedback', short_user_path(current_user)
+	%li= link_to 'Request feedback', short_new_user_demand_path(current_user)
+	%li= link_to 'Pending reviews', short_user_demands_path(current_user)
+	%li= link_to 'Badges', :controller => 'badges'
+	%li= link_to 'Settings', settings_path(current_user)
 	%li#last= link_to 'Log out', logout_path

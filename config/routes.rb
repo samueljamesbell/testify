@@ -36,11 +36,22 @@ ActionController::Routing::Routes.draw do |map|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
+ 
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'  
   
   map.login '/login', :controller => 'sessions', :action => 'login'
   map.logout '/logout', :controller => 'sessions', :action => 'logout'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.welcome '/home', :controller => 'pages', :action => 'index'
+  map.settings '/:id/settings', :controller => 'users', :action => 'edit'
+  
+  map.short_user '/:user_id', :controller => 'users', :action => 'show'
+  map.short_new_user_review '/:user_id/reviews/new', :controller => 'reviews', :action => 'new'
+  map.short_user_demands '/:user_id/demands', :controller => 'demands', :action => 'index'
+  map.short_new_user_demand '/:user_id/demands/new', :controller => 'demands', :action => 'new'
+  map.short_edit_user '/:id/edit', :controller => 'users', :action => 'edit'
+  map.short_user_review '/:user_id/:id', :controller => 'reviews', :action => 'show'
   
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
@@ -51,9 +62,9 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
   
-  map.connect '/:id', :controller => 'users', :action => 'show'
   map.connect '/go/:code', :controller => 'demands', :action => 'show'
+
+  
+
 end

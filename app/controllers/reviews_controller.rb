@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 		@review = Review.new
 		@review.demand_id = @demand.id
 		if !@demand || @demand.completed?
-			redirect_to home_path
+			redirect_to welcome_path
 		end
     respond_to do |format|
     	format.html { render :layout => 'application' }
@@ -16,6 +16,11 @@ class ReviewsController < ApplicationController
     logger.error("Attempt to create new review with invalid demand id. #{params[:demand_id]}" )
     flash[:error] = "An error has occurred. Demand not found."
     redirect_to welcome_path
+	end
+	
+	def show
+		@user = User.find_by_handle(params[:user_id])
+		@review = Review.find(params[:id])
 	end
 	
 	def create
@@ -28,7 +33,7 @@ class ReviewsController < ApplicationController
 			@demand.update_attribute :code_used, true
 			Notifier.deliver_review_completed(@review)
 			flash[:success] = 'Your review was created and saved successfully.'
-			redirect_to user_path(@review.user)
+			redirect_to short_user_path(@review.user)
 		else
 			render :action => 'new'
 		end

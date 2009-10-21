@@ -10,4 +10,4 @@
 	- else
 		%li
 			You haven't requested any reviews. 
-			= link_to 'Ask for one now?', :controller => 'demands', :action => 'new'
+			= link_to 'Ask for one now?', short_new_user_demand_path(current_user)

@@ -49,7 +49,7 @@ protected
  		return if logged_in?
   	session[:original_uri] = request.request_uri
   	flash[:notice] = "Please log in"
-    redirect_to :controller => 'sessions' , :action => 'login'
+    redirect_to login_path
   end
 
 end

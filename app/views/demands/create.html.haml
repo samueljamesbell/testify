@@ -15,7 +15,7 @@
 		= @demand.email
 		
 %p
-	= link_to "Return to my feedback", user_path(@demand.user)
+	= link_to "Return to my feedback", short_user_path(@demand.user)
 	|
-	= link_to "Request another review", :controller => 'demands', :action => 'new'
+	= link_to "Request another review", short_new_user_demand_path(current_user)
 	
