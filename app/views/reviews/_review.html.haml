@@ -43,4 +43,6 @@
 	%br
 	Overall quality:
 	%span.bold= "#{review.quality_of_service + 1}/5"
-	%p= link_to 'Permalink', short_user_review_path(@user, review)
+	- unless controller.controller_name == 'reviews' && controller.action_name == 'show'
+		%br
+		= link_to '+', short_user_review_path(@user, review)
