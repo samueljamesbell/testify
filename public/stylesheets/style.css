@@ -8,6 +8,22 @@
 	color: #aaa;
 }
 
+#tweet_this {
+	float: right;
+	display: block;
+	margin-top: -13px;
+}
+
+.permalink {
+	float: right;
+	display: block;
+	margin-top: -9px;
+}
+
+ul#reviews li .permalink a {
+	text-decoration: none;
+}
+
 a {
 	text-decoration: none;
 	color: #1F2A34;

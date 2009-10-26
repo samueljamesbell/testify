@@ -46,6 +46,8 @@
 	%br
 	- if controller.controller_name == 'reviews' && controller.action_name == 'show'
 		%span#tweet_this
-			= link_to_remote 'Tweet this!', :url => status_update_url(current_user, review)
+			=# link_to_remote 'Tweet this!', :url => status_update_url(current_user, review)
+			= link_to 'Tweet this!', "http://twitter.com/?status=Check out this review on Testify: http://testifyapp.com/#{@user.handle}/#{@review.id}"
 	- else
-		= link_to '+', short_user_review_path(@user, review)
+		%span.permalink
+			= link_to '+', short_user_review_path(@user, review)
