@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   
   rescue_from ActionController::UnknownAction, :with => :unknown
   rescue_from ActionController::RoutingError, :with => :unknown
+  rescue_from ActiveRecord::RecordNotFound, :with => :unknown
   
   def unknown
   	render :template => "public/404.html", :status => 404
