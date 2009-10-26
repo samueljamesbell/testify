@@ -22,6 +22,11 @@
 		= f.label :send_email, 'Send an email notification'
 		= f.check_box :send_email, :checked => true
 	%p
+		= f.label :custom_text, 'Add a message'
+		(optional)
+		%br
+		= f.text_area :custom_text
+	%p
 		= f.submit "Continue", :id => 'save_button'
 
 		= link_to 'Cancel', short_user_path(current_user), :id => 'cancel_link'
