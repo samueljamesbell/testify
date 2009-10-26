@@ -18,10 +18,19 @@
 		%br
 		= f.text_field :name
 	%p
-		= f.label :handle, 'Username (your profile will appear at http://testifyapp.com/username )'
+		= f.label :handle, 'Username'
 		%span.compulsory *
+		(your profile will appear at http://testifyapp.com/username )
 		%br
 		= f.text_field :handle
+	%p
+		= f.label :about, 'About you'
+		%br
+		= f.text_field :about, :maxlength => 300, :size => 30
+	%p
+		= f.label :site, 'Website'
+		%br
+		= f.text_field :site, :maxlength => 100, :size => 30
 	%p
 		= f.label :email
 		%span.compulsory *

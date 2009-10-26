@@ -15,6 +15,14 @@ Is using Testify to win more business and improve their service,
 simply by collecting the following testimonials.
 %br
 %br
+- unless @user.about.nil?
+	%p
+		%span.bold= @user.about
+%p
+	- unless @user.site.nil?
+		= link_to 'View Site', @user.site
+		|
+	= link_to 'Contact', "mailto:#{@user.email}"
 
 - unless @user.reviews.empty?
 	#averages

@@ -7,6 +7,14 @@
 		%br
 		= f.text_field :name
 	%p
+		= f.label :about, 'About you'
+		%br
+		= f.text_field :about, :maxlength => 300, :size => 30
+	%p
+		= f.label :site, 'Website'
+		%br
+		= f.text_field :site, :maxlength => 200, :size => 30
+	%p
 		= f.label :email
 		%br
 		= f.text_field :email

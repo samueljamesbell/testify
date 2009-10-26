@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091021212748) do
+ActiveRecord::Schema.define(:version => 20091026131232) do
 
   create_table "actions", :force => true do |t|
     t.string   "object_type"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20091021212748) do
     t.string   "url"
     t.string   "tusername"
     t.string   "tpassword"
+    t.text     "about"
+    t.string   "site"
   end
 
 end
