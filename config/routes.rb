@@ -48,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.settings '/:id/settings', :controller => 'users', :action => 'edit'
   
   map.short_user '/:user_id', :controller => 'users', :action => 'show'
+  map.formatted_short_user '/:user_id.:format', :controller => 'users', :action => 'show'
   map.short_new_user_review '/:user_id/reviews/new', :controller => 'reviews', :action => 'new'
   map.short_user_demands '/:user_id/demands', :controller => 'demands', :action => 'index'
   map.short_new_user_demand '/:user_id/demands/new', :controller => 'demands', :action => 'new'

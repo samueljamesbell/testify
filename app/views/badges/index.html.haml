@@ -5,9 +5,19 @@ You can get a badge like this one to link your website to your profile, just cop
 
 = image_tag 'badge.png', :id => 'badge'
 
-#message
+%textarea.badge_area
 	&== #{"<a href=\"http://testifyapp.com/" + current_user.handle + "\"><img src=\"http://testifyapp.com/images/badge.png\" alt=\"See what our customers think of us on Testify\"></a>"}
 
+%br
+%br
+
+#message
+	If you'd rather create your own, you can access your data through our new API! To get the XML data for your profile and reviews, you can find them here:
+	%br
+	= link_to "http://testifyapp.com/#{current_user.handle}.xml", "http://testifyapp.com/#{current_user.handle}.xml"
+	%p
+	Whatever you decide, we'd love to see what you come up with, so be sure to get in touch at:
+	= link_to 'shout@testifyapp.com', 'mailto:shout@testifyapp.com'
 %br
 %br
 

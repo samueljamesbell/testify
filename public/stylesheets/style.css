@@ -264,4 +264,9 @@ ul#navigation #login {
 	float: right;
 }
 
+.badge_area {
+	width: 98%;
+	height: 65px;
+}
+
 

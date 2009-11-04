@@ -13,7 +13,11 @@ class UsersController < ApplicationController
 # 		@reviews = @user.reviews.sort { |x,y| y.total_rating <=> x.total_rating }[0..1]
 		else
   	  flash[:error] = "An error has occurred. User could not be not found."
-	  	redirect_to welcome_path
+  	  respond_to do |format|
+  	  	format.html { redirect_to welcome_path }
+  	  	format.xml { render :layout => :false }
+  	  end
+	  	
 	  end
 	rescue ActiveRecord::RecordNotFound
     logger.error("Attempt to show user with invalid id. #{params[:id]}" )
