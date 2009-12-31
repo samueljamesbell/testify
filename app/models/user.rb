@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
     end
     user
   end
-
+  
   def password
     @password
   end
@@ -97,7 +97,7 @@ private
   end
 
   def self.encrypted_password(password, salt)
-    string_to_hash = password + "estate" + salt
+    string_to_hash = password + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
 

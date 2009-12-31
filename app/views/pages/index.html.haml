@@ -1,6 +1,6 @@
 
--#.important#elevator
-%h2
+
+%h2#tagline
 	Testify helps you win more business and improve your service, simply by collecting testimonials from your clients. 
 
 -#	With Testify you can collect testimonials from clients. close more deals.
@@ -8,30 +8,34 @@
 
 
 #email_form
-	%h4 We're in closed beta!
+	%h3 We're in closed beta!
 	-	form_for(@email) do |f|
 		- f.error_messages
-		Enter your email address below to recieve one email when we launch.
+		%h4 Enter your email address below to recieve one email when we launch.
 		%p
-			= f.label :address, 'Email address:'
-			= f.text_field :address		
+			= f.text_field :address, :value => 'Email address'
 			= f.submit 'Submit'
 			%br
-			%small
-				We won't spam you - promise!
+			%span.microtext#no_spam We won't spam you - promise!
 
 
 %h3#subtagline Here's how Testify can help you:
 
-.information
-	%h3 1. Boost your reputation
-	With great testimonials from the people you've worked with, you can demonstrate how good you really are. As you build up a profile, this valuable source of reviews ensures your potential customers will choose you.
+.review
+	%h2
+		%span.number 1.
+		Boost your reputation
+	.review_content With great testimonials from the people you've worked with, you can demonstrate how good you really are. As you build up a profile, this valuable source of reviews ensures your potential customers will choose you.
 
-.information
-	%h3 2. Increase your business
-	Use your profile - full of awesome testimonials -  to demonstrate your true potential to prospective clients. Impress them with your ratings and reviews, all obtained from your previous works, then blow them away with your happy customers and comments.
+.review
+	%h2
+		%span.number 2.
+		Increase your business
+	.review_content Use your profile - full of awesome testimonials -  to demonstrate your true potential to prospective clients. Impress them with your ratings and reviews, all obtained from your previous works, then blow them away with your happy customers and comments.
 
-.information
-	%h3 3. Enhance your service
-	Uncovered a problem? When you know what your customers think of you, it's easy to fix things that aren't quite as good as they could be. With feedback from people relevant to you, you can improve the quality of your service, whenever you need to.
+.review
+	%h2
+		%span.number 3.
+		Enhance your service
+	.review_content Uncovered a problem? When you know what your customers think of you, it's easy to fix things that aren't quite as good as they could be. With feedback from people relevant to you, you can improve the quality of your service, whenever you need to.
 

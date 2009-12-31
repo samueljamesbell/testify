@@ -11,7 +11,7 @@ class EmailsController < ApplicationController
 	def create
 		@email = Email.new(params[:email])
 		if @email.save
-			flash[:success] = "We've got your email! Thanks for your interest, we'll contact you as soon as we can."
+			flash[:success] = "Thanks for your interest, we'll contact you as soon as we can."
 			redirect_to welcome_path
 		else
 			render :action => 'new'
