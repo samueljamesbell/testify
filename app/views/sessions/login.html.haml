@@ -1,18 +1,17 @@
-%h3 Log in
+.upper
+	%h2 Log in
 
-- form_tag do
 
-	%p
-		%label{:for => 'email'} Email
-		%br
-		= text_field_tag :email, params[:email]
-		
-	%p
-		%label{:for => 'password'} Password
-		%br
-		= password_field_tag :password, params[:password]
+.lower
+	- form_tag do
 
-	%p
-		= submit_tag "Login", :id => 'save_button'
-		= link_to "Sign up", signup_path, :class => 'sign_up_link'
+		%p
+			= text_field_tag :email, params[:email], :value => 'Email address'
+			
+		%p
+			= password_field_tag :password, params[:password], :value => 'Password'
+	
+		%p
+			= submit_tag "Login", :id => 'save_button'
+			= link_to "or sign up", signup_path, :class => 'sign_up_link'
 

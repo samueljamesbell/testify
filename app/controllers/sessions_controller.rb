@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         flash[:success] = "Successfully logged in."                                                           
         redirect_to short_user_path(user)
       else
-        flash[:error] = "It looks like that wasn't quite right. Fancy another go?"
+        flash.now[:error] = "It looks like that wasn't quite right. Fancy another go?"
       end
     end
   end

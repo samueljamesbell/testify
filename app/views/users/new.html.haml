@@ -1,65 +1,46 @@
-- if !logged_in?
-	- content_for :message do
-		#message
-			%h4
-				Testify helps you find what they 
-				%span.italic really 
-				thought.
-			Testify is the new platform to get your customer's opinions. By collecting short &amp; simple testimonials from your previous clients, you can improve your service, and use your reviews to prove your potential and close more deals.
-			= link_to 'Find out more &raquo;', welcome_path
+-# = content_for :message do
+-#	Testify helps you find what they 
+-#	%i really 
+-#	thought.
 
-%h3 Sign up
+.upper
+	%h2#tagline
+		By collecting short &amp; simple testimonials from your previous clients, you can improve your service, and use your reviews to prove your potential and close more deals.
+		= link_to 'Learn more &raquo;', welcome_path
 
--	form_for(@user, :html => { :multipart => true }) do |f|
-	= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
-	%p
-		= f.label :name
-		%span.compulsory *
-		%br
-		= f.text_field :name
-	%p
-		= f.label :handle, 'Username'
-		%span.compulsory *
-		(your profile will appear at http://testifyapp.com/username )
-		%br
-		= f.text_field :handle
-	%p
-		= f.label :about, 'About you'
-		%br
-		= f.text_field :about, :maxlength => 300, :size => 30
-	%p
-		= f.label :site, 'Website'
-		%br
-		= f.text_field :site, :maxlength => 100, :size => 30
-	%p
-		= f.label :email
-		%span.compulsory *
-		%br
-		= f.text_field :email
-	%p.divider
-		= f.label :password, 'Password'
-		%span.compulsory *
-		%br
-		= f.password_field :password
-	%p
-		= f.label :password_confirmation, 'Confirm Password'
-		%span.compulsory *
-		%br
-		= f.password_field :password_confirmation
-	%p.divider
-		= f.label :logo, 'Upload an image or logo'
-		%span.compulsory *
-		%br
-		= f.file_field :logo
-	%p.divider
-		= f.label :beta_code, 'Invite code'
-		%span.compulsory *
-		%br
-		= f.text_field :beta_code
-	%p
-		= f.submit "Sign up", :id => 'save_button'
-		= link_to 'Cancel', { :controller => 'pages', :action => 'index' }, :id => 'cancel_link'
-	%p
-		%span.compulsory *
-		Required field
 
+.lower
+	%h2
+		Sign up
+
+	-	form_for(@user, :html => { :multipart => true }) do |f|
+		= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
+		%p
+			= f.text_field :name, :value => 'Your name'
+		%p
+			= f.text_field :handle, :value => 'Username'
+			%br
+			%span.microtext Your profile will appear at http://testifyapp.com/username
+		%p
+			= f.text_field :about, :maxlength => 300, :size => 30, :value => 'About you'
+		%p
+			= f.text_field :site, :maxlength => 100, :size => 30, :value => 'Website'
+		%p
+			= f.text_field :email, :value => 'Email address'
+		%p.divider
+			= f.label :password, 'Password'
+			%br
+			= f.password_field :password, :value => 'Password'
+		%p
+			= f.label :password_confirmation, 'Confirm Password'
+			%br
+			= f.password_field :password_confirmation, :value => 'Password'
+		%p.divider
+			Upload an image or logo
+			%br
+			= f.file_field :logo
+		%p.divider
+			= f.text_field :beta_code, :value => 'Invite code'
+		%p
+			= f.submit "Sign up"
+	

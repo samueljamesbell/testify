@@ -3,30 +3,25 @@
 %html{:xmlns => "http://www.w3.org/1999/xhtml"}
 	%head
 		%title= site_name
-		= stylesheet_link_tag 'typography'
-		= stylesheet_link_tag 'forms'
 		= stylesheet_link_tag 'style'
-		= javascript_include_tag :defaults
 	%body
 		
 		#page
 			-	if logged_in?
 				= render :partial => 'shared/navigation'
 			- else
-				%ul#navigation
-					%li#login= link_to "Log in", login_path
-					-# %li#last= link_to "Sign up", signup_path
+				= link_to "Log in", login_path, :id => 'login'
 
-			= image_tag 'logo.png', :id => 'testify_logo'
+			= image_tag 'testify_logo.png', :id => 'testify_logo'
 
 			-	flash.each do |key, message|
-				=	content_tag :div, message, :class => key
+				%div{:id => key, :class => 'flash'}
+					= image_tag "icons/#{key}.png", :class => 'flash_icon'
+					= message
 				
 			= yield :message
 		
-			#content
-		
-				=	yield
+			=	yield
 		
 			= render :partial => 'shared/footer'
 			
