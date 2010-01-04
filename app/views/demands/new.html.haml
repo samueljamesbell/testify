@@ -1,32 +1,23 @@
-%h3 Request feedback
+.upper
+	%h2 Request feedback
 
--	form_for([current_user, @demand]) do |f|
-	= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
-	%p
-		= f.label :name 
-		%br
-		= f.text_field :name
-	%p
-		= f.label :email
-		%br
-		= f.text_field :email
-	%p
-		= f.label :company
-		%br
-		= f.text_field :company
-	%p
-		= f.label :work, 'Project description'
-		%br
-		= f.text_field :work
-	%p
-		= f.label :send_email, 'Send an email notification'
-		= f.check_box :send_email, :checked => true
-	%p
-		= f.label :custom_text, 'Add a message'
-		(optional)
-		%br
-		= f.text_area :custom_text
-	%p
-		= f.submit "Continue", :id => 'save_button'
+.lower
+	-	form_for([current_user, @demand]) do |f|
+		= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
+		%p
+			= f.text_field :name, :value => 'Name'
+		%p
+			= f.text_field :email, :value => 'Email address'
+		%p
+			= f.text_field :company, :value => 'Company'
+		%p
+			= f.text_field :work, :value => 'Project description'
+		%p
+			= f.label :send_email, 'Send an email notification'
+			= f.check_box :send_email, :checked => true
+		%p
+			= f.text_area :custom_text, :value => 'Add a message (optional)'
+		%p
+			= f.submit "Continue", :id => 'save_button'	
 
-		= link_to 'Cancel', short_user_path(current_user), :id => 'cancel_link'
+			= link_to ' or cancel', short_user_path(current_user), :id => 'cancel_link'

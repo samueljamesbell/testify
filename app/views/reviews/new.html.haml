@@ -1,78 +1,76 @@
-- content_for :message do
-	#message
-		%h4= "#{@demand.user.name.titleize} has requested your opinion"
+-# content_for :message do
+-#	#message
+-#		%h4= "#{@demand.user.name.titleize} has requested your opinion"
+-#		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
+
+.upper
+	= image_tag @demand.user.logo.url(:thumb), :id => 'logo_thumb'
+	.upper_inner
+		%h2= @demand.user.name.titleize
 		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
+	
+.lower
+	%h3=	"#{@demand.name.titleize}, #{@demand.company}"
+	%h4#project_description=	@demand.work.titleize
 
-%p
-	%span.bold Name:
-	=	@demand.name.titleize
-%p
-	%span.bold Company:
-	=	@demand.company.titleize
-%p
-	%span.bold Project:
-	=	@demand.work.titleize
-
--	form_for([@demand.user, @review]) do |f|
-	= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
-	%p
-		= f.label :body, 'Review'
-		%br
-		= f.text_area :body
-		
-		=	f.hidden_field :demand_id
-	%p
-		= f.label :value_for_money, "Value for money"
-		%br
-		= f.radio_button :value_for_money, 4
-		Excellent
-		= f.radio_button :value_for_money, 3
-		Good
-		= f.radio_button :value_for_money, 2, :checked => true
-		Average
-		= f.radio_button :value_for_money, 1
-		Poor
-		= f.radio_button :value_for_money, 0
-		Awful
-	%p
-		= f.label :time_management, "Time management"
-		%br
-		= f.radio_button :time_management, 4
-		Excellent
-		= f.radio_button :time_management, 3
-		Good
-		= f.radio_button :time_management, 2, :checked => true
-		Average
-		= f.radio_button :time_management, 1
-		Poor
-		= f.radio_button :time_management, 0
-		Awful
-	%p
-		= f.label :customer_service, "Customer service"
-		%br
-		= f.radio_button :customer_service, 4
-		Excellent
-		= f.radio_button :customer_service, 3
-		Good
-		= f.radio_button :customer_service, 2, :checked => true
-		Average
-		= f.radio_button :customer_service, 1
-		Poor
-		= f.radio_button :customer_service, 0
-		Awful
-	%p
-		= f.label :quality_of_service, "Overall quality"
-		%br
-		= f.radio_button :quality_of_service, 4
-		Excellent
-		= f.radio_button :quality_of_service, 3
-		Good
-		= f.radio_button :quality_of_service, 2, :checked => true
-		Average
-		= f.radio_button :quality_of_service, 1
-		Poor
-		= f.radio_button :quality_of_service, 0
-		Awful
-	%p
-		= f.submit "Continue", :id => 'save_button'
-		= link_to 'Cancel', short_user_path(@demand.user), :id => 'cancel_link'
+	-	form_for([@demand.user, @review]) do |f|
+		= f.error_messages :header_message => "", :header_tag => 'h3', :message => "We had some problems with the following fields:"
+		%p
+			= f.text_area :body, :value => 'Comments'
+			
+			=	f.hidden_field :demand_id
+		%p.radios.divider
+			= f.label :value_for_money, "Value for money:"
+			%br
+			= f.radio_button :value_for_money, 4
+			Excellent
+			= f.radio_button :value_for_money, 3
+			Good
+			= f.radio_button :value_for_money, 2, :checked => true
+			Average
+			= f.radio_button :value_for_money, 1
+			Poor
+			= f.radio_button :value_for_money, 0
+			Awful
+		%p.radios.divider
+			= f.label :time_management, "Time management:"
+			%br
+			= f.radio_button :time_management, 4
+			Excellent
+			= f.radio_button :time_management, 3
+			Good
+			= f.radio_button :time_management, 2, :checked => true
+			Average
+			= f.radio_button :time_management, 1
+			Poor
+			= f.radio_button :time_management, 0
+			Awful
+		%p.radios.divider
+			= f.label :customer_service, "Customer service:"
+			%br
+			= f.radio_button :customer_service, 4
+			Excellent
+			= f.radio_button :customer_service, 3
+			Good
+			= f.radio_button :customer_service, 2, :checked => true
+			Average
+			= f.radio_button :customer_service, 1
+			Poor
+			= f.radio_button :customer_service, 0
+			Awful
+		%p.radios.divider
+			= f.label :quality_of_service, "Overall quality:"
+			%br
+			= f.radio_button :quality_of_service, 4
+			Excellent
+			= f.radio_button :quality_of_service, 3
+			Good
+			= f.radio_button :quality_of_service, 2, :checked => true
+			Average
+			= f.radio_button :quality_of_service, 1
+			Poor
+			= f.radio_button :quality_of_service, 0
+			Awful
+		%p.divider
+			= f.submit "Continue", :id => 'save_button'
+			= link_to 'or cancel', short_user_path(@demand.user), :id => 'cancel_link		'

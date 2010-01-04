@@ -1,43 +1,46 @@
-%h3 Account settings
 
--	form_for(@user, :html => { :multipart => true }) do |f|
-	= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
-	%p
-		= f.label :name
-		%br
-		= f.text_field :name
-	%p
-		= f.label :about, 'About you'
-		%br
-		= f.text_field :about, :maxlength => 300, :size => 30
-	%p
-		= f.label :site, 'Website'
-		%br
-		= f.text_field :site, :maxlength => 200, :size => 30
-	%p
-		= f.label :email
-		%br
-		= f.text_field :email
-	%p.divider
-		= f.label :password, 'Password'
-		%br
-		= f.password_field :password
-	%p
-		= f.label :password_confirmation, 'Confirm Password'
-		%br
-		= f.password_field :password_confirmation
-	%p.divider
-		= f.label :logo, 'Upload an image or logo'
-		%br
-		= f.file_field :logo
-	%p.divider
-		= f.label :tusername, 'Twitter username'
-		%br
-		= f.text_field :tusername
-	%p
-		= f.label :tpassword, 'Twitter password'
-		%br
-		= f.password_field :tpassword
-	%p
-		= f.submit "Update", :id => 'save_button'
-		= link_to 'Cancel', user_path(@user), :id => 'cancel_link'
+.upper
+	%h2 Account settings
+
+.lower
+	-	form_for(@user, :html => { :multipart => true }) do |f|
+		= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
+		%p
+			= f.label :name
+			%br
+			= f.text_field :name
+		%p
+			= f.label :about, 'About you'
+			%br
+			= f.text_field :about, :maxlength => 300, :size => 30
+		%p
+			= f.label :site, 'Website'
+			%br
+			= f.text_field :site, :maxlength => 200, :size => 30
+		%p
+			= f.label :email
+			%br
+			= f.text_field :email
+		%p.divider
+			= f.label :password, 'Password'
+			%br
+			= f.password_field :password
+		%p
+			= f.label :password_confirmation, 'Confirm Password'
+			%br
+			= f.password_field :password_confirmation
+		%p.divider
+			= f.label :logo, 'Upload an image or logo'
+			%br
+			= f.file_field :logo
+		%p.divider
+			= f.label :tusername, 'Twitter username'
+			%br
+			= f.text_field :tusername
+		%p
+			= f.label :tpassword, 'Twitter password'
+			%br
+			= f.password_field :tpassword
+		%p
+			= f.submit "Update", :id => 'save_button'
+			= link_to 'Cancel', user_path(@user), :id => 'cancel_link'

@@ -93,11 +93,60 @@ h4 {
 	margin-top: -1px;
 }
 
+.upper_inner {
+	margin-left: 100px;
+	padding-bottom: 30px;
+}
+
+#logo_thumb {
+	background: url('../images/image_border_thumb.png') center no-repeat;
+	width: 73px;
+	height: 74px;
+	padding: 7px;
+	float: left;
+}
+
+.left_button {
+	margin-top: 15px;
+	background: url('../images/submit_button.png') no-repeat;
+	border: none;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 5px;
+	width: 107px;
+	height: 31px;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+}
+
+.right_button {
+	margin-top: 30px;
+	float: right;
+	background: url('../images/submit_button.png') no-repeat;
+	border: none;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 5px;
+	width: 107px;
+	height: 31px;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
 .lower {
 	margin-top: -19px;
 	background: #a3a9ab;
 	padding: 15px 15px 15px 20px;
 	border-bottom: 1px solid #dcd9d5;
+}
+
+#project_description {
+	margin-top: -20px;
 }
 
 #email_form h3 {
@@ -130,6 +179,10 @@ h3#subtagline {
 	margin-left: 20px;
 }
 
+form {
+	font-size: 16px;
+}
+
 input[type=text] {
 	background: url('../images/full_text_field.png') no-repeat;
 	border: none;
@@ -156,6 +209,28 @@ input[type=submit] {
 	font-size: 16px;
 	color: #fff;
 	cursor: pointer;
+}
+
+textarea {
+	font-family: Verdana, Arial, Helvetica;
+	background: url('../images/text_area.png') no-repeat 100%;
+	border: none;
+	width: 528px;
+	height: 270px;
+	font-size: 16px;
+	padding: 15px;
+}
+
+.radios label {
+	font-size: 16px;
+	text-shadow: 1px 1px 1px #666;
+	line-height: 25px;
+	color: #fff;
+}
+
+.radios {
+	font-size: 16px;
+
 }
 
 .review {
@@ -185,4 +260,17 @@ input[type=submit] {
 	color: #59544c;
 	float: right;
 	padding-bottom: 10px;
+}
+
+.errorExplanation ul {
+	list-style-type: none;
+}
+
+.errorExplanation ul li {
+	background-image: url('../images/icons/error.png');
+	background-position: left top;
+	padding-left: 25px;
+	height: 20px;
+	margin-left: -28px;
+	background-repeat: no-repeat;
 }

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   	url
   end
   
-	has_attached_file :logo, :styles => { :thumb => '100x100', :small => '175x175>'}
+	has_attached_file :logo, :styles => { :thumb => '73x74#', :small => '175x175>'}
 	
 	validates_attachment_presence :logo
 	
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validate :password_non_blank
   
-    def self.authenticate(email, password)
+  def self.authenticate(email, password)
     user = self.find_by_email(email)
     if user
       expected_password = encrypted_password(password, user.salt)
@@ -93,16 +93,16 @@ class User < ActiveRecord::Base
 private
 
   def password_non_blank
-    errors.add(:password, "can't be blank" ) if hashed_password.blank?
+    errors.add(:password, "Missing password" ) if hashed_password.blank?
   end
 
   def self.encrypted_password(password, salt)
-    string_to_hash = password + salt
+    string_to_hash = password + "estate" + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
 
   def create_new_salt
     self.salt = self.object_id.to_s + rand.to_s
   end
-	
+  
 end
