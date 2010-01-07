@@ -44,7 +44,7 @@
 	- if !@reviews.empty?
 		= render :partial => @reviews
 	- else
-		%li
+		.point
 			- if logged_in? && @user == current_user
 				No one's reviewed you yet! 
 				= link_to 'Request feedback?', new_user_demand_path(current_user)

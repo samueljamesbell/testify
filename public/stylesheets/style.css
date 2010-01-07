@@ -99,10 +99,11 @@ h5 {
 	padding: 15px 15px 15px 20px;
 	border: 1px solid #36586e;
 	margin-top: 20px;
+	position: relative;
 }
 
 #large_header {
-	min-height: 200px;
+	height: 185px;
 }
 
 .upper h2 {
@@ -135,12 +136,12 @@ h5 {
 }
 
 .buttons {
-	margin: 28px 0 0 -10px;
-	float: left;
+	position: absolute;
+	top: 170px;
+	left: 15px;
 }
 
 .left_button {
-	margin-top: 15px;
 	background: url('../images/submit_button.png') no-repeat;
 	border: none;
 	display: block;
@@ -269,7 +270,7 @@ textarea {
 }
 
 #averages {
-	height: 100px;
+	height: 80px;
 }
 
 .left_averages {
@@ -295,14 +296,14 @@ textarea {
 }
 
 .category {
-	font-size: 18px;
+	font-size: 16px;
 	color: #36434a;
 	float: left;
 	margin-top: 10px;
 }
 
 .result {
-	font-size: 18px;
+	font-size: 16px;
 	color: #fff;
 	text-shadow: 1px 1px 1px #666;
 	float: right;

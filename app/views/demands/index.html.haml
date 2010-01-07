@@ -5,6 +5,6 @@
 	- if !@demands.empty?
 		= render :partial => @demands
 	- else
-		.review
+		.point
 			You haven't requested any reviews. 
 			= link_to 'Ask for one now?', short_new_user_demand_path(current_user)

@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 	
 	validates_attachment_presence :logo
 	
-	validates_presence_of     :email, :name, :handle
+	validates_presence_of     :email, :name, :handle, :site, :about
 	
   validates_uniqueness_of   :email
   validates_uniqueness_of 	:handle
