@@ -223,17 +223,19 @@ input[type=text] {
 	background: url('../images/full_text_field.png') no-repeat;
 	border: none;
 	width: 545px;
-	height: 31px;
+	height: 24px;
 	font-size: 16px;
 	padding-left: 15px;
+	padding-top: 7px;
 }
 
 input[type=password] {
 	background: url('../images/full_text_field.png') no-repeat;
 	border: none;
 	width: 545px;
-	height: 31px;
+	height: 24px;
 	font-size: 16px;
+	padding-top: 7px;
 	padding-left: 15px;
 }
 
