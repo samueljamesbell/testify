@@ -185,9 +185,6 @@ h5 {
 	margin-top: -20px;
 }
 
-#email_form h3 {
-	margin-top: -1px;
-}
 
 #email_form h5 {
 	margin-top: -20px;
@@ -199,6 +196,7 @@ h5 {
 	width: 434px;
 	height: 31px;
 }
+
 
 #email_form input[type=submit] {
 	float: right;
