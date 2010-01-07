@@ -1,19 +1,19 @@
-%li
-	%span.bold Name:
-	= demand.name.titleize
+.point
+	%h5
+		= time_ago_in_words(demand.created_at)
+		ago	
+	%span.field Name:
+	%span.answer= demand.name.titleize
 	%br
-	%span.bold Email:
-	= demand.email
+	%span.field Email:
+	%span.answer= demand.email
 	%br
-	%span.bold Company:
-	= demand.company.titleize
+	%span.field Company:
+	%span.answer= demand.company.titleize
 	%br
-	%span.bold Project:
-	= demand.work.titleize
-	%br
-	%span.bold Requested:
-	= time_ago_in_words(demand.created_at)
-	ago		
+	%span.field Project:
+	%span.answer= demand.work.titleize
+
 	%p
-	%span{:id => "reminder_link_#{demand.id}"}
+		%span{:id => "reminder_link_#{demand.id}"}
 		= link_to_remote "Send an email reminder", :url => { :controller => 'demands', :action => 'send_email', :id => demand.id }

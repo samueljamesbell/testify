@@ -1,0 +1,32 @@
+.review
+
+	%span#tweet_this
+		=# link_to_remote 'Tweet this!', :url => status_update_url(current_user, review)
+		= link_to 'Tweet this!', "http://twitter.com/?status=Check out this review on Testify: http://testifyapp.com/#{@user.handle}/#{@review.id}"
+
+	.review_content
+		= @review.body
+		%b= @review.work.titleize
+		
+		
+		.attribs
+			- if current_user != @user && !@review.name_hidden?
+				%span{:id => "name_#{@review.id}"}
+					%span.reviewer_name= @review.name.titleize
+			- elsif current_user == @user && @review.name_hidden?
+				%span{:id => "name_#{@review.id}"}
+					= render :partial => 'reviews/name_greyed', :locals => { :review => @review }
+			- elsif current_user == @user && !@review.name_hidden?
+				%span{:id => "name_#{@review.id}"}
+					= render :partial => 'reviews/name', :locals => { :review => @review }
+			- if !@review.name_hidden? && !@review.company_hidden?
+				&raquo;
+			- if current_user != @user && !@review.company_hidden?
+				%span{:id => "company_#{@review.id}"}
+					%span.reviewer_company= @review.company.titleize
+			- elsif current_user == @user && @review.company_hidden?
+				%span{:id => "company_#{@review.id}"}
+					= render :partial => 'reviews/company_greyed', :locals => { :review => @review }
+			- elsif current_user == @user && !@review.company_hidden?
+				%span{:id => "company_#{@review.id}"}
+					= render :partial => 'reviews/company', :locals => { :review => @review }

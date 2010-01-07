@@ -1,21 +1,23 @@
-%p
-	You've just requested a review from 
-	= @demand.name.titleize
-	of 
-	= @demand.company.titleize
+.upper
+	%h2 Feedback request
 
-%p.important
-	The unique URL for this review (that you can send to your client) is:
-	%br
-	= link_to "http://testifyapp.com/go/#{@demand.code}", "http://testify.thecouriernew.com/go/#{@demand.code}"
+.lower
+	%h3
+		You've just requested a review from 
+		= @demand.name.titleize
+		of 
+		= @demand.company.titleize
+	%h5
+		The unique URL for this review (that you can send to your client) is:
+	= link_to "http://testifyapp.com/go/#{@demand.code}", "http://testifyapp.com/go/#{@demand.code}"
 	
--if @demand.send_email.to_i == 1
-	%p
-		An email notification has been sent to 
-		= @demand.email
+	-if @demand.send_email.to_i == 1
+		%h5
+			An email notification has been sent to 
+			= @demand.email
 		
-%p
-	= link_to "Return to my feedback", short_user_path(@demand.user)
-	|
-	= link_to "Request another review", short_new_user_demand_path(current_user)
-	
+	%p
+		= link_to "Return to my feedback", short_user_path(@demand.user)
+		%span.microtext or
+		= link_to "Request another review", short_new_user_demand_path(current_user)
+

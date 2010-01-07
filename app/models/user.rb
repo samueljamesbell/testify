@@ -1,7 +1,8 @@
 require 'digest/sha1'
 class User < ActiveRecord::Base
 	has_many :reviews
-	has_many :limited_reviews, :class_name => 'Review', :foreign_key => 'user_id', :limit => 2, :order => 'created_at desc'
+	#  to limit reviews, add :limit => x below
+	has_many :limited_reviews, :class_name => 'Review', :foreign_key => 'user_id', :order => 'created_at desc'
 	has_many :demands
 
   acts_as_url :handle
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
   	url
   end
   
-	has_attached_file :logo, :styles => { :thumb => '73x74#', :small => '175x175>'}
+	has_attached_file :logo, :styles => { :thumb => '73x74#', :small => '162x162#'}
 	
 	validates_attachment_presence :logo
 	

@@ -1,7 +1,11 @@
-%ul#navigation
-	%li= link_to 'My feedback', short_user_path(current_user)
-	%li= link_to 'Request feedback', short_new_user_demand_path(current_user)
+%a{:href => '#', :id => 'my_testify_link', :onmouseover => "new Effect.Appear(\"navigation\",{duration:0.1})"} My testify
+
+%ul{:id => 'navigation', :style => 'display:none;'}
+	%li= link_to 'My reviews', short_user_path(current_user)
+	%li= link_to 'Request review', short_new_user_demand_path(current_user)
 	%li= link_to 'Pending reviews', short_user_demands_path(current_user)
 	%li= link_to 'Badges', :controller => 'badges'
 	%li= link_to 'Settings', settings_path(current_user)
 	%li#last= link_to 'Log out', logout_path
+	
+

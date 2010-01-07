@@ -1,2 +1,1 @@
 page.replace_html("reminder_link_#{@demand.id}", 'An email notification has been sent')
-page.visual_effect :highlight, "reminder_link_#{@demand.id}"

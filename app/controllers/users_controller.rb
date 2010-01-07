@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
 	  @user = User.find_by_handle(params[:user_id])
 	  if @user
-	  	@reviews = @user.limited_reviews
+			@reviews = @user.limited_reviews
 # 		reviews can = @user.reviews for paying users. below code sorts by total_rating
 # 		@reviews = @user.reviews.sort { |x,y| y.total_rating <=> x.total_rating }[0..1]
 		else

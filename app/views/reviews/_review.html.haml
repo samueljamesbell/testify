@@ -1,53 +1,35 @@
-%li
+%div{:class => 'review', :id => "review_#{review_counter}"}
 
-	%h3= review.work.titleize
-	
-	By
-	- if current_user != @user && !review.name_hidden?
-		%span{:id => "name_#{review.id}"}
-			%span.bold= review.name.titleize
-	- elsif current_user == @user && review.name_hidden?
-		%span{:id => "name_#{review.id}"}
-			= render :partial => 'reviews/name_greyed', :locals => { :review => review }
-	- elsif current_user == @user && !review.name_hidden?
-		%span{:id => "name_#{review.id}"}
-			= render :partial => 'reviews/name', :locals => { :review => review }
-	- if !review.name_hidden? && !review.company_hidden?
-		at
-	- if current_user != @user && !review.company_hidden?
-		%span{:id => "company_#{review.id}"}
-			%span.bold= review.company.titleize
-	- elsif current_user == @user && review.company_hidden?
-		%span{:id => "company_#{review.id}"}
-			= render :partial => 'reviews/company_greyed', :locals => { :review => review }
-	- elsif current_user == @user && !review.company_hidden?
-		%span{:id => "company_#{review.id}"}
-			= render :partial => 'reviews/company', :locals => { :review => review }
-	= time_ago_in_words(review.created_at)
-	ago
-
-	%p.important
-		= review.body
-	%br
-	%span.bold Ratings
-	%br
-	%br
-	Value for money:
-	%span.bold= "#{review.value_for_money + 1}/5"
-	%br
-	Time management:
-	%span.bold= "#{review.time_management + 1}/5"
-	%br
-	Customer service:
-	%span.bold= "#{review.customer_service + 1}/5"
-	%br
-	Overall quality:
-	%span.bold= "#{review.quality_of_service + 1}/5"
-	%br
 	- if controller.controller_name == 'reviews' && controller.action_name == 'show'
 		%span#tweet_this
 			=# link_to_remote 'Tweet this!', :url => status_update_url(current_user, review)
 			= link_to 'Tweet this!', "http://twitter.com/?status=Check out this review on Testify: http://testifyapp.com/#{@user.handle}/#{@review.id}"
 	- else
-		%span.permalink
-			= link_to '+', short_user_review_path(@user, review)
+		= link_to '+', short_user_review_path(@user, review), :class => 'permalink', :id => "permalink_#{review_counter}"
+
+	.review_content
+		= review.body
+		%b= review.work.titleize
+		
+		
+		%div{:class => 'attribs', :id => "attribs_#{review_counter}"}
+			- if current_user != @user && !review.name_hidden?
+				%span{:id => "name_#{review.id}"}
+					%span.reviewer_name= review.name.titleize
+			- elsif current_user == @user && review.name_hidden?
+				%span{:id => "name_#{review.id}"}
+					= render :partial => 'reviews/name_greyed', :locals => { :review => review }
+			- elsif current_user == @user && !review.name_hidden?
+				%span{:id => "name_#{review.id}"}
+					= render :partial => 'reviews/name', :locals => { :review => review }
+			- if !review.name_hidden? && !review.company_hidden?
+				&raquo;
+			- if current_user != @user && !review.company_hidden?
+				%span{:id => "company_#{review.id}"}
+					%span.reviewer_company= review.company.titleize
+			- elsif current_user == @user && review.company_hidden?
+				%span{:id => "company_#{review.id}"}
+					= render :partial => 'reviews/company_greyed', :locals => { :review => review }
+			- elsif current_user == @user && !review.company_hidden?
+				%span{:id => "company_#{review.id}"}
+					= render :partial => 'reviews/company', :locals => { :review => review }

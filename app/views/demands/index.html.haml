@@ -1,13 +1,10 @@
-= image_tag @user.logo.url(:small), :id => 'logo'
+.upper
+	%h2 Pending reviews
 
-%h3= @user.name.titleize
-
-%h4#pending_reviews Pending Reviews
-
-%ul#demands
+.reviews
 	- if !@demands.empty?
 		= render :partial => @demands
 	- else
-		%li
+		.review
 			You haven't requested any reviews. 
 			= link_to 'Ask for one now?', short_new_user_demand_path(current_user)

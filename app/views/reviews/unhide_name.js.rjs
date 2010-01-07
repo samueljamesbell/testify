@@ -1,2 +1,1 @@
 page.replace_html("name_#{@review.id}", :partial => 'reviews/name.html.haml', :locals => { :review => @review } )
-page.visual_effect :highlight, "name_#{@review.id}"

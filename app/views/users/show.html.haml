@@ -2,45 +2,45 @@
 - if params[:first_time] == 'true'
 	-content_for :message do
 		#message
-			%h4 Welcome to Testify!
+			%h5 Welcome to Testify!
 			Thanks for signing up. You're now ready to get testimonials from your clients, and build a profile of awesome feedback. To get started,
 			= link_to 'request feedback.', new_user_demand_path(current_user)
-= image_tag @user.logo.url(:small), :id => 'logo'
 
-%h3#big_name= @user.name.titleize
-%br
-%br
-Is using Testify to win more business and improve their service,
-%br
-simply by collecting the following testimonials.
-%br
-%br
-- unless @user.about.nil?
-	%p
-		%span.bold= @user.about
-%p
-	- unless @user.site.nil?
-		= link_to 'View Site', @user.site
-		|
-	= link_to 'Contact', "mailto:#{@user.email}"
+
+.upper#large_header
+	= image_tag @user.logo.url(:small), :id => 'logo_small'
+	%h2= @user.name.titleize
+	-#	is using Testify to win more business and improve their service, simply by collecting the following testimonials.
+	
+	- unless @user.about.nil?
+		%p#about
+			= @user.about
+	
+	.buttons
+		- unless @user.site.nil?
+			= link_to 'View site', @user.site, :class => 'left_button', :id => 'no_left_margin'
+		= link_to 'Contact', "mailto:#{@user.email}", :class => 'left_button'
 
 - unless @user.reviews.empty?
-	#averages
-		%h4 Average ratings
-		%br
-		Time management:
-		%span.bold= @user.ratings_options.at(@user.time_management_mean.round)
-		%br
-		Customer service: 
-		%span.bold= @user.ratings_options.at(@user.customer_service_mean.round)
-		%br
-		Value for money: 
-		%span.bold= @user.ratings_options.at(@user.value_for_money_mean.round)
-		%br
-		Overall quality:
-		%span.bold= @user.ratings_options.at(@user.quality_of_service_mean.round)
+	.lower#averages
+		.left_averages
+			%span.category Time management:
+			%span.result= @user.ratings_options.at(@user.time_management_mean.round).titleize
+			%br
+			%span.category Customer service: 
+			%span.result= @user.ratings_options.at(@user.customer_service_mean.round).titleize
+		
+		#border
+			&nbsp;
+			
+		.right_averages
+			%span.category Value for money: 
+			%span.result= @user.ratings_options.at(@user.value_for_money_mean.round).titleize
+			%br
+			%span.category Overall quality:
+			%span.result= @user.ratings_options.at(@user.quality_of_service_mean.round).titleize
 
-%ul#reviews
+#reviews
 	- if !@reviews.empty?
 		= render :partial => @reviews
 	- else
