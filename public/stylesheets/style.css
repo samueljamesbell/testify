@@ -393,7 +393,9 @@ textarea {
 .review .review_content {
 	margin-left: 37px;
 	margin-top: -10px;
+	position: relative;
 }
+
 .reviewer_name {
 	font-size: 16px;
 	color: #fff;
@@ -424,7 +426,8 @@ textarea {
 }
 
 .attribs {
-	bottom: 0;
+	position: absolute;
+	bottom: -25px;
 	right: 0;
 	height: 16px;
 	margin-right: -20px;
