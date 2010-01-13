@@ -3,6 +3,7 @@ body {
 	font-size: 14px;
 	color: #fff;
 	background: #c7c2bb url('../images/gradient.png') top center no-repeat;
+	min-height: 100%;
 }
 
 a {
