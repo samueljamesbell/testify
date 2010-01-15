@@ -40,7 +40,9 @@
 			%br
 			= f.file_field :logo
 		%p.divider
-			= f.text_field :beta_code, :value => 'Invite code'
+			= f.label :beta_code, 'Invite code'
+			%br
+			= f.text_field :beta_code, :value => params[:invite_code]
 		%p
 			= f.submit "Sign up"
 	

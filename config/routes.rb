@@ -38,7 +38,9 @@ ActionController::Routing::Routes.draw do |map|
   #   end
  
   map.connect '/go/:code', :controller => 'demands', :action => 'show'
- 
+	
+	map.connect '/signup/:invite_code', :controller => 'users', :action => 'new'
+	
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'  
   
