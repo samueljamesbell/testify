@@ -10,7 +10,7 @@
 .upper#large_header
 	= image_tag @user.logo.url(:small), :id => 'logo_small'
 	%h2
-		- if @user.name.nil?
+		- if !@user.name.nil?
 			=	@user.name.titleize
 		- else
 			= @user.handle

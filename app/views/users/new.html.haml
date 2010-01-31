@@ -16,29 +16,23 @@
 	-	form_for(@user, :html => { :multipart => true }) do |f|
 		= f.error_messages :header_message => nil, :header_tag => 'h3', :message => "We had some problems with the following fields:"
 		%p
-			= f.text_field :name, :value => 'Your name'
-		%p
-			= f.text_field :handle, :value => 'Username'
+			= f.label :handle, 'Username'
+			%br
+			= f.text_field :handle
 			%br
 			%span.microtext Your profile will appear at http://testifyapp.com/username
 		%p
-			= f.text_field :about, :maxlength => 300, :size => 30, :value => 'About you'
-		%p
-			= f.text_field :site, :maxlength => 100, :size => 30, :value => 'Website'
-		%p
-			= f.text_field :email, :value => 'Email address'
+			= f.label :email, 'Email address'
+			%br
+			= f.text_field :email
 		%p.divider
 			= f.label :password, 'Password'
 			%br
-			= f.password_field :password, :value => 'Password'
+			= f.password_field :password
 		%p
 			= f.label :password_confirmation, 'Confirm Password'
 			%br
-			= f.password_field :password_confirmation, :value => 'Password'
-		%p.divider
-			Upload an image or logo
-			%br
-			= f.file_field :logo
+			= f.password_field :password_confirmation
 		%p.divider
 			= f.label :beta_code, 'Invite code'
 			%br

@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
 
-	map.resources :users, :member => { :choose_handle => [:get, :post], :company_profile => :get } do |users|
+	map.resources :users, :member => { :choose_handle => [:get, :post], :company_profile => :get, :upload_logo => [:get, :post]} do |users|
 		users.resources :reviews, :member => { :hide_name => [:get, :post], :unhide_name => [:get, :post] }
 		users.resources :demands
 	end
