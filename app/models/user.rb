@@ -16,11 +16,9 @@ class User < ActiveRecord::Base
   	url
   end
   
-	has_attached_file :logo, :styles => { :thumb => '73x74#', :small => '162x162#'}
+	has_attached_file :logo, :styles => { :thumb => '73x74#', :small => '162x162#'}, :default_url => "/images/missing_image_:style.jpg"
 	
-	validates_attachment_presence :logo
-	
-	validates_presence_of     :email, :name, :handle, :site, :about
+	validates_presence_of     :email, :handle
 	
   validates_uniqueness_of   :email
   validates_uniqueness_of 	:handle

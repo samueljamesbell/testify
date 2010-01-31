@@ -1,6 +1,9 @@
 %p
 	Hey
-	= @review.user.name.titleize
+	- if @review.user.name.nil?
+		= @review.user.handle
+	- else
+		= @review.user.name.titleize
 
 %p
 	= @review.name.titleize

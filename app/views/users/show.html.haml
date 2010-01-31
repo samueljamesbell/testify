@@ -9,7 +9,11 @@
 
 .upper#large_header
 	= image_tag @user.logo.url(:small), :id => 'logo_small'
-	%h2= @user.name.titleize
+	%h2
+		- if @user.name.nil?
+			=	@user.name.titleize
+		- else
+			= @user.handle
 	-#	is using Testify to win more business and improve their service, simply by collecting the following testimonials.
 	
 	- unless @user.about.nil?

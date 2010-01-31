@@ -3,7 +3,10 @@
 	= @demand.name.titleize
 
 %p
-	= @demand.user.name.titleize
+	- if @demand.user.name.nil?
+		= @demand.user.handle
+	- else
+		= @demand.user.name.titleize
 	has requested feedback from you for the following project:
 	%br
 	%b= @demand.work.titleize
