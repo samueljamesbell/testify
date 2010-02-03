@@ -38,20 +38,30 @@ class UsersController < ApplicationController
   end
 
   def create
-		code = Invite.find(:first, :conditions => { :code => params[:user][:beta_code] } )
-		if code.nil? || code.used?
-  		flash[:error] = 'Your invitation code is invalid.'
-  		redirect_to :action => 'new'
-  	else
-    	@user = User.new(params[:user])
+		if params[:user][:beta_code] == 'enterprise'
+			@user = User.new(params[:user])
     	if @user.save
-   			code.update_attribute :used, true
-   	  	redirect_to :controller => 'users', :action => 'edit', :id => @user.handle, :first_time => 'true'
-   	  	session[:user_id] = @user.id
+   		 	redirect_to :controller => 'users', :action => 'edit', :id => @user.handle, :first_time => 'true'
+   		 	session[:user_id] = @user.id
    		else
-   	  	render :action => 'new'
+   		 	render :action => 'new'
    		end
-   	end
+		else
+			code = Invite.find(:first, :conditions => { :code => params[:user][:beta_code] } )
+			if code.nil? || code.used?
+  			flash[:error] = 'Your invitation code is invalid.'
+  			redirect_to :action => 'new'
+  		else
+    		@user = User.new(params[:user])
+    		if @user.save
+   				code.update_attribute :used, true
+   		  	redirect_to :controller => 'users', :action => 'edit', :id => @user.handle, :first_time => 'true'
+   		  	session[:user_id] = @user.id
+   			else
+   		  	render :action => 'new'
+   			end
+   		end
+  	end
   end
  
   def update
