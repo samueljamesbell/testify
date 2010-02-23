@@ -1,12 +1,10 @@
--# content_for :message do
--#	#message
--#		%h4= "#{@demand.user.name.titleize} has requested your opinion"
--#		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
-
 .upper
 	= image_tag @demand.user.logo.url(:thumb), :id => 'logo_thumb'
 	.upper_inner
-		%h2= @demand.user.name.titleize
+		- if @demand.user.name.nil?
+			%h2= @demand.user.handle.titleize
+		-else
+			%h2= @demand.user.name.titleize
 		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
 	
 .lower
