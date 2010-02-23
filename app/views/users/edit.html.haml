@@ -22,7 +22,7 @@
 				= f.file_field :logo
 			%p
 				= f.submit "Next", :id => 'save_button'
-				= link_to 'Skip this &raquo;', short_user_path(@user)
+				= link_to 'Skip this &raquo;', :controller => 'users', :action => 'edit', :id => @user.handle, :criteria => 'true'
 				
 		- elsif params['first_time'] == 'true'
 		
@@ -41,8 +41,8 @@
 				= f.text_field :site, :maxlength => 200, :size => 30, :value => 'http://'
 			%p
 				= f.submit "Next", :id => 'save_button'
-				= link_to 'Skip this &raquo;', short_user_path(@user)
-				
+				= link_to 'Skip this &raquo;', :controller => 'users', :action => 'edit', :id => @user.handle, :criteria => 'true'
+								
 		- elsif params['criteria'] == 'true'
 		
 			%p
@@ -56,7 +56,6 @@
 				= f.text_field :quality_of_service_name, :maxlength => 15
 			%p
 				= f.submit "Next", :id => 'save_button'
-				= link_to 'Skip this &raquo;', short_user_path(@user)
 				
 		- else
 		
