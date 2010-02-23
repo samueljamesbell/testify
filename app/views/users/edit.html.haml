@@ -4,6 +4,8 @@
 		%h2 Your details
 	- elsif params[:upload_logo] == 'true'
 		%h2 Choose a logo
+	- elsif params[:criteria] == 'true'
+		%h2 Options
 	-else
 		%h2 Account settings
 
@@ -12,6 +14,8 @@
 		= f.error_messages :header_message => nil, :header_tag => 'h3', :message => "We had some problems with the following fields:"
 		
 		- if params['upload_logo'] == 'true'
+		
+			= hidden_field_tag :upload_logo, 'true'
 			%p.divider
 				= f.label :logo, 'Upload an image or logo'
 				%br
@@ -21,6 +25,7 @@
 				= link_to 'Skip this &raquo;', short_user_path(@user)
 				
 		- elsif params['first_time'] == 'true'
+		
 			= hidden_field_tag :first_time, 'true'
 			%p
 				= f.label :name
@@ -38,7 +43,23 @@
 				= f.submit "Next", :id => 'save_button'
 				= link_to 'Skip this &raquo;', short_user_path(@user)
 				
+		- elsif params['criteria'] == 'true'
+		
+			%p
+				%h5 Choose up to four criteria to be reviewed. Here's a few suggestions.
+				= f.text_field :customer_service_name, :maxlength => 15
+			%p
+				= f.text_field :time_management_name, :maxlength => 15
+			%p	
+				= f.text_field :value_for_money_name, :maxlength => 15
+			%p
+				= f.text_field :quality_of_service_name, :maxlength => 15
+			%p
+				= f.submit "Next", :id => 'save_button'
+				= link_to 'Skip this &raquo;', short_user_path(@user)
+				
 		- else
+		
 			%p
 				= f.label :name
 				%br
@@ -64,16 +85,16 @@
 					%br
 					= f.password_field :password_confirmation
 				%p.divider
-					= f.label :logo, 'Upload an image or logo'
-					%br
+					%h5 Upload an image or logo
 					= f.file_field :logo
 				%p.divider
-					= f.label :tusername, 'Twitter username'
-					%br
-					= f.text_field :tusername
+					%h5 Choose up to four criteria to be reviewed
+					= f.text_field :customer_service_name, :maxlength => 15
 				%p
-					= f.label :tpassword, 'Twitter password'
-					%br
-					= f.password_field :tpassword
+					= f.text_field :time_management_name, :maxlength => 15
+				%p	
+					= f.text_field :value_for_money_name, :maxlength => 15
 				%p
+					= f.text_field :quality_of_service_name, :maxlength => 15
+				%p.divider
 					= f.submit "Update", :id => 'save_button'

@@ -28,21 +28,30 @@
 - unless @user.reviews.empty?
 	.lower#averages
 		.left_averages
-			%span.category Time management:
-			%span.result= @user.ratings_options.at(@user.time_management_mean.round).titleize
-			%br
-			%span.category Customer service: 
-			%span.result= @user.ratings_options.at(@user.customer_service_mean.round).titleize
+			- unless @user.time_management_name.blank?
+				%span.category= @user.time_management_name + ":"
+				%span.result= @user.ratings_options.at(@user.time_management_mean.round).titleize
+				%br
+			- unless @user.customer_service_name.blank?
+				%span.category= @user.customer_service_name + ":"
+				%span.result= @user.ratings_options.at(@user.customer_service_mean.round).titleize
+				%br
+			- unless @user.value_for_money_name.blank?
+				%span.category= @user.value_for_money_name + ":"
+				%span.result= @user.ratings_options.at(@user.value_for_money_mean.round).titleize
+				%br
+			- unless @user.quality_of_service_name.blank?
+				%span.category= @user.quality_of_service_name + ":"
+				%span.result= @user.ratings_options.at(@user.quality_of_service_mean.round).titleize
+				
+		#border &nbsp;
 		
-		#border
-			&nbsp;
-			
 		.right_averages
-			%span.category Value for money: 
-			%span.result= @user.ratings_options.at(@user.value_for_money_mean.round).titleize
-			%br
-			%span.category Overall quality:
-			%span.result= @user.ratings_options.at(@user.quality_of_service_mean.round).titleize
+			%span#review_count= @user.reviews.count
+			- if @user.reviews.count == 1
+				%span#review_count_sub review
+			- else
+				%span#review_count_sub reviews
 
 #reviews
 	- if !@reviews.empty?

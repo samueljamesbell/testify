@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091026132223) do
+ActiveRecord::Schema.define(:version => 20100223163646) do
 
   create_table "actions", :force => true do |t|
     t.string   "object_type"
@@ -81,6 +81,10 @@ ActiveRecord::Schema.define(:version => 20091026132223) do
     t.string   "tpassword"
     t.text     "about"
     t.string   "site"
+    t.string   "time_management_name",    :default => "Time management"
+    t.string   "customer_service_name",   :default => "Customer service"
+    t.string   "value_for_money_name",    :default => "Value for money"
+    t.string   "quality_of_service_name", :default => "Overall quality"
   end
 
 end

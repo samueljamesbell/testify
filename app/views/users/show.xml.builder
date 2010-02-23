@@ -18,10 +18,6 @@ xml.user(:id => @user.id) do
 				xml.project(review.work)
 				xml.reviewer_email(review.email)
 				xml.body(review.body)
-				xml.value_for_money(review.value_for_money)
-				xml.customer_service(review.customer_service)
-				xml.time_management(review.time_management)
-				xml.overall_quality(review.quality_of_service)
 				xml.created_at(review.created_at)
 				xml.updated_at(review.updated_at)
 			end

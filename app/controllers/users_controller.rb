@@ -69,6 +69,8 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       if params[:first_time] == 'true'
       	redirect_to :controller => 'users', :action => 'edit', :id => @user.handle, :upload_logo => 'true'
+      elsif params[:upload_logo] == 'true'
+        redirect_to :controller => 'users', :action => 'edit', :id => @user.handle, :criteria => 'true'
       else
      		flash[:success] = 'Your account details have been updated.'
       	redirect_to short_user_path(@user)

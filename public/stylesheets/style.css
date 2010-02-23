@@ -82,7 +82,8 @@ h5 {
 #error {
 	background: #da9e9e;
 	border: 1px solid #a76b67;
-}
+}
+
 #login {
 	float: right;
 	background: #263640;
@@ -271,7 +272,7 @@ textarea {
 }
 
 #averages {
-	height: 80px;
+	height: 135px;
 }
 
 .left_averages {
@@ -290,10 +291,30 @@ textarea {
 
 #border {
 	float: left;
-	margin-left: 10px;
+	margin-left: 20px;
+	margin-top: 20px;
 	background: url('../images/central_divider.png') no-repeat center;
 	width: 2px;
 	height: 100px;
+}
+
+#review_count {
+	font-size: 56px;
+	text-shadow: 1px 1px 1px #666;
+	width: 100%;
+	text-align: center;
+	margin-top: 10px;
+	display: block;
+}
+
+#review_count_sub {
+	font-size: 16px;
+	color: #36434a;
+	width: 100%;
+	text-align: center;
+	display: block;
+	font-weight: 100;
+	margin-top: 2px;
 }
 
 .category {
