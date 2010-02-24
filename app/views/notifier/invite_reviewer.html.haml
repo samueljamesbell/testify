@@ -1,0 +1,19 @@
+%p
+	= "Hey #{@review.name}"
+
+%p
+	- if @review.user.name.blank?
+		= "Thanks for reviewing #{@review.user.handle} on Testify."
+	- else
+		= "Thanks for reviewing #{@review.user.name} on Testify."
+
+%p
+	To try out Testify for yourself and sign up for our beta, follow this link:
+	%br
+	= link_to @link, @link
+
+%p
+	Thanks,
+
+%p
+	The Testify Team

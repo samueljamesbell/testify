@@ -38,6 +38,7 @@ class ReviewsController < ApplicationController
 			@demand.update_attribute :completed, true
 			@demand.update_attribute :code_used, true
 			Notifier.deliver_review_completed(@review)
+			Notifier.deliver_invite_reviewer(@review, Invite.create!)
 			flash[:success] = 'Your review was created and saved successfully.'
 			redirect_to short_user_path(@review.user)
 		else

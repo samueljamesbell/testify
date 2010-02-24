@@ -10,6 +10,16 @@ class Notifier < ActionMailer::Base
     body[:link] = "http://testifyapp.com/go/#{demand.code}"
   end
   
+  def invite_reviewer(review, invite)
+    @recipients = review.email
+    @from = "shout@testifyapp.com"
+    @subject = "Try out Testify"
+    @sent_on = Time.now
+    @content_type = 'text/html'
+    body[:review] = review
+    body[:link] = "http://testifyapp.com/signup/#{invite.code}"
+  end
+  
   def reminder(demand)
     @recipients  = demand.email
     @from        = "shout@testifyapp.com"
