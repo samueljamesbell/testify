@@ -10,7 +10,8 @@
 	.review_content
 		= review.body
 		%br
-		%b= review.work.titleize
+		- unless review.work.nil?
+			%b= review.work.titleize
 		
 		
 		%div{:class => 'attribs', :id => "attribs_#{review_counter}"}
@@ -23,14 +24,17 @@
 			- elsif current_user == @user && !review.name_hidden?
 				%span{:id => "name_#{review.id}"}
 					= render :partial => 'reviews/name', :locals => { :review => review }
-			- if !review.name_hidden? && !review.company_hidden?
-				&raquo;
-			- if current_user != @user && !review.company_hidden?
-				%span{:id => "company_#{review.id}"}
-					%span.reviewer_company= review.company.titleize
-			- elsif current_user == @user && review.company_hidden?
-				%span{:id => "company_#{review.id}"}
-					= render :partial => 'reviews/company_greyed', :locals => { :review => review }
-			- elsif current_user == @user && !review.company_hidden?
-				%span{:id => "company_#{review.id}"}
-					= render :partial => 'reviews/company', :locals => { :review => review }
+			- unless review.company.blank?
+				- unless review.company.nil?
+				
+					- if !review.name_hidden? && !review.company_hidden?
+						&raquo;
+					- if current_user != @user && !review.company_hidden?
+						%span{:id => "company_#{review.id}"}
+							%span.reviewer_company= review.company.titleize
+					- elsif current_user == @user && review.company_hidden?
+						%span{:id => "company_#{review.id}"}
+							= render :partial => 'reviews/company_greyed', :locals => { :review => review }
+					- elsif current_user == @user && !review.company_hidden?
+						%span{:id => "company_#{review.id}"}
+							= render :partial => 'reviews/company', :locals => { :review => review }

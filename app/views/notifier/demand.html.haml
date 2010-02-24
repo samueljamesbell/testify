@@ -7,12 +7,11 @@
 		= @demand.user.handle
 	- else
 		= @demand.user.name.titleize
-	has requested feedback from you for the following project:
-	%br
-	%b= @demand.work.titleize
-	
-%p
-	%b= @demand.custom_text
+	has requested feedback from you on Testify.
+
+- unless @demand.custom_text.blank?	
+	%p
+		%b= @demand.custom_text
 
 %p
 	To let them know what you thought, go to:

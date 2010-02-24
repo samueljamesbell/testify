@@ -3,21 +3,24 @@
 
 .lower
 	-	form_for([current_user, @demand]) do |f|
-		= f.error_messages :header_message => "Oops! There's been a bit of a problem.", :header_tag => 'h3', :message => "We had some problems with the following fields:"
+		= f.error_messages :header_message => "", :header_tag => 'h3', :message => "We had some problems with the following fields:"
+		
 		%p
-			= f.text_field :name, :value => 'Name'
+			= f.label :name
+			%br
+			= f.text_field :name
 		%p
-			= f.text_field :email, :value => 'Email address'
-		%p
-			= f.text_field :company, :value => 'Company'
-		%p
-			= f.text_field :work, :value => 'Project description'
+			= f.label :email
+			%br
+			= f.text_field :email
 		%p
 			= f.label :send_email, 'Send an email notification'
 			= f.check_box :send_email, :checked => true
-		%p
-			= f.text_area :custom_text, :value => 'Add a message (optional)'
+			
+		%a{:href => '#', :id => 'more_info_link', :onclick => "new Effect.Appear(\"more_info\",{duration:0.1})"} Add more
+			
+		#more_info{:style => 'display: none;'}= render :partial => 'more_info', :locals => { :f => f }
+		
 		%p
 			= f.submit "Continue", :id => 'save_button'	
-
 			= link_to ' or cancel', short_user_path(current_user), :id => 'cancel_link'

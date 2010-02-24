@@ -11,8 +11,8 @@ class Review < ActiveRecord::Base
 	
 	validates_presence_of :name, :email, :body
 	
-	validates_numericality_of [:value_for_money, :time_management, :customer_service, :quality_of_service]
-	validates_inclusion_of [:value_for_money, :time_management, :customer_service, :quality_of_service], :in => 0..4
+#	validates_numericality_of [:value_for_money, :time_management, :customer_service, :quality_of_service]
+#	validates_inclusion_of [:value_for_money, :time_management, :customer_service, :quality_of_service], :in => 0..4
 	
 	
 end

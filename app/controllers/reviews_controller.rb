@@ -27,7 +27,13 @@ class ReviewsController < ApplicationController
 		@choices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		@review = Review.new(params[:review])
 		@demand = Demand.find(@review.demand_id)
-		@review.update_attributes(:name => @demand.name, :company => @demand.company, :email => @demand.email, :user_id => @demand.user_id, :work => @demand.work)
+		@review.update_attributes(:name => @demand.name, :email => @demand.email, :user_id => @demand.user_id)
+		unless @demand.company.nil?
+		  @review.update_attributes(:company => @demand.company)
+		end
+		unless @demand.work.nil?
+		  @review.update_attributes(:work => @demand.work)
+		end
 		if @review.save
 			@demand.update_attribute :completed, true
 			@demand.update_attribute :code_used, true

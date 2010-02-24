@@ -8,8 +8,13 @@
 		Please take a moment to fill in this form. Bear in mind that your review will be publicly available, so please try to be honest.
 	
 .lower
-	%h3=	"#{@demand.name.titleize}, #{@demand.company}"
-	%h5#project_description=	@demand.work.titleize
+	%h3
+		= @demand.name.titleize
+		- unless @demand.company.blank?
+			= "at #{@demand.company}"
+			
+	- unless @demand.work.blank?		
+		%h5#project_description= @demand.work.titleize
 
 	-	form_for([@demand.user, @review]) do |f|
 		= f.error_messages :header_message => "", :header_tag => 'h3', :message => "We had some problems with the following fields:"
