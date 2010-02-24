@@ -8,11 +8,13 @@
 	%span.field Email:
 	%span.answer= demand.email
 	%br
-	%span.field Company:
-	%span.answer= demand.company.titleize
-	%br
-	%span.field Project:
-	%span.answer= demand.work.titleize
+	- unless demand.company.blank?
+		%span.field Company:
+		%span.answer= demand.company.titleize
+		%br
+	- unless demand.work.blank?
+		%span.field Project:
+		%span.answer= demand.work.titleize
 
 	%p
 		%span{:id => "reminder_link_#{demand.id}"}
