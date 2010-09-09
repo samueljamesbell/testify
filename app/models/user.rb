@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   	url
   end
   
-	has_attached_file :logo, :styles => { :thumb => '73x74#', :small => '162x162#'}, :default_url => "/images/missing_image_:style.jpg"
+	has_attached_file :logo, :storage => :s3, :s3_credentials => "#{RAILS_ROOT}/config/s3.yml", :styles => { :thumb => '73x74#', :small => '162x162#'}, :default_url => "/images/missing_image_:style.jpg"
 	
 	validates_presence_of     :email, :handle
 	

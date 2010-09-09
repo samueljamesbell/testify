@@ -1,0 +1,9 @@
+development:
+    bucket: testifyapp.com
+    access_key_id: AKIAITU6B4YWG5JWPNGA
+    secret_access_key: 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
+    
+production:
+    bucket: testifyapp.com
+    access_key_id: AKIAITU6B4YWG5JWPNGA
+    secret_access_key: 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
